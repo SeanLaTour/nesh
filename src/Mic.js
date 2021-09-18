@@ -2,34 +2,79 @@ import React, { useState } from "react";
 import Wad from "web-audio-daw";
 
 function Mic() {
-  const [toggler, setToggle] = useState(false);
-  var voice = new Wad({ source: "mic" });
-  var tuner = new Wad.Poly();
+  let recordings = [];
+  let voice = new Wad({ source: "mic" });
+  let tuner = new Wad.Poly({
+    recorder: {
+      options: { mimeType: "audio/webm" },
+      onstop: function (event) {
+        let blob = new Blob(this.recorder.chunks, {
+          type: "audio/webm;codecs=opus",
+        });
+        recordings.push(new Wad({ source: URL.createObjectURL(blob) }));
+      },
+    },
+  });
+
+  tuner.add(voice);
+
+  const run = (toggle) => {
+    if (toggle) {
+      voice.play();
+      tuner.recorder.start();
+      logPitch();
+    }
+    if (!toggle) {
+      cancelAnimationFrame(logPitch);
+      tuner.recorder.stop();
+      voice.stop();
+    }
+  };
+
+  var logPitch = function () {
+    tuner.updatePitch();
+    console.log(tuner.pitch, tuner.noteName);
+    requestAnimationFrame(logPitch);
+  };
 
   const record = () => {
-    tuner.add(voice);
-    voice.play();
-    tuner.updatePitch(); // The tuner is now calculating the pitch and note name of its input 60 times per second. These values are stored in tuner.pitch and tuner.noteName.
-
-    var logPitch = function () {
-      console.log(tuner.pitch, tuner.noteName);
-      //requestAnimationFrame(logPitch);
-    };
-    logPitch();
+    run(true);
   };
 
   const recordOff = () => {
-    tuner.stopUpdatingPitch();
-    voice.stop();
+    run(false);
+  };
+
+  const check = () => {
+    console.log(recordings);
+    recordings[0] && recordings[0].play();
   };
 
   return (
     <div>
-      <button onClick={() => record()} style={{ marginTop: "24rem" }}>
+      <button
+        onClick={() => {
+          record();
+        }}
+        style={{ marginTop: "24rem" }}
+      >
         Listen
       </button>
-      <button onClick={() => recordOff()} style={{ marginTop: "24rem" }}>
+      <button
+        onClick={() => {
+          recordOff();
+        }}
+        style={{ marginTop: "24rem" }}
+      >
         Stop
+      </button>
+      <button
+        onClick={() => {
+          check();
+        }}
+        style={{ marginTop: "24rem" }}
+      >
+        Check
       </button>
     </div>
   );
