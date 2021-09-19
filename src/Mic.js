@@ -31,27 +31,32 @@ function Mic() {
 
   const trackPitch = (toggle) => {
     if (toggle) {
-      tuner.updatePitch();
-    }
-    if (!toggle) {
-      tuner.stopUpdatingPitch();
-    }
-  };
+        tuner.updatePitch()
+      }
+      if (!toggle) {
+        tuner.stopUpdatingPitch()
+      }
+  }
 
   const record = () => {
     run(true);
-    trackPitch(true);
+    trackPitch(true)
   };
 
   const recordOff = () => {
-    trackPitch(false);
+    trackPitch(false)
     run(false);
+    
   };
 
   const check = () => {
     console.log(recordings);
     recordings[0] && recordings[0].play();
   };
+
+  const note = () => {
+      
+  }
 
   return (
     <div>
@@ -81,7 +86,7 @@ function Mic() {
       </button>
       <button
         onClick={() => {
-          console.log(tuner.noteName);
+          console.log(tuner.noteName)
         }}
         style={{ marginTop: "24rem" }}
       >
