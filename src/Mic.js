@@ -22,26 +22,29 @@ function Mic() {
     if (toggle) {
       voice.play();
       tuner.recorder.start();
-      logPitch();
     }
     if (!toggle) {
-      cancelAnimationFrame(logPitch);
       tuner.recorder.stop();
       voice.stop();
     }
   };
 
-  var logPitch = function () {
-    tuner.updatePitch();
-    console.log(tuner.pitch, tuner.noteName);
-    requestAnimationFrame(logPitch);
+  const trackPitch = (toggle) => {
+    if (toggle) {
+      tuner.updatePitch();
+    }
+    if (!toggle) {
+      tuner.stopUpdatingPitch();
+    }
   };
 
   const record = () => {
     run(true);
+    trackPitch(true);
   };
 
   const recordOff = () => {
+    trackPitch(false);
     run(false);
   };
 
@@ -75,6 +78,14 @@ function Mic() {
         style={{ marginTop: "24rem" }}
       >
         Check
+      </button>
+      <button
+        onClick={() => {
+          console.log(tuner.noteName);
+        }}
+        style={{ marginTop: "24rem" }}
+      >
+        Note
       </button>
     </div>
   );
