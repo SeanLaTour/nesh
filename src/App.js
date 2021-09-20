@@ -1,17 +1,20 @@
 import "./App.css";
 import Mic from "./Mic";
-import Listen from "./Listen";
+import Tab from "./Tab";
 import { Switch, Route } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
 
 function App() {
+  const [noteArray, setNoteArray] = useState([]);
+
   return (
     <div className="App">
       <Switch>
         <Route path="/" exact>
-          <Mic />
+          <Mic setNoteArray={setNoteArray} />
         </Route>
-        <Route path="/listen">
-          <Listen />
+        <Route path="/tab">
+          <Tab noteArray={noteArray} />
         </Route>
       </Switch>
     </div>

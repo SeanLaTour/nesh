@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Wad from "web-audio-daw";
 
-function Mic() {
+function Mic({ setNoteArray }) {
   let noteArray = [];
   let recordings = [];
   let voice = new Wad({ source: "mic" });
@@ -32,18 +32,28 @@ function Mic() {
   };
 
   let reqAnim;
+  let count = 0;
+
+  const listenToPitch = (toggle) => {
+    if (toggle) {
+      noteArray.push({ count: count, note: tuner.noteName });
+      reqAnim = window.requestAnimationFrame(listenToPitch);
+    } else {
+      count = 0;
+      window.cancelAnimationFrame(reqAnim);
+    }
+  };
 
   const trackPitch = (toggle) => {
     if (toggle) {
-      console.log(reqAnim)
+      count++;
+      console.log(count, tuner.noteName);
       tuner.updatePitch();
-      noteArray.push(tuner.noteName);
-      reqAnim = window.requestAnimationFrame(trackPitch);
     }
+    listenToPitch(toggle);
     if (!toggle) {
-      console.log(reqAnim)
+      console.log(reqAnim);
       tuner.stopUpdatingPitch();
-      window.cancelAnimationFrame(reqAnim)
     }
   };
 
@@ -74,7 +84,7 @@ function Mic() {
         }}
         style={{ marginTop: "24rem" }}
       >
-        Listen
+        Record
       </button>
       <button
         onClick={() => {
@@ -87,20 +97,19 @@ function Mic() {
       <button
         onClick={() => {
           check();
-          
         }}
         style={{ marginTop: "24rem" }}
       >
-        Check
+        Listen
       </button>
       <button
         onClick={() => {
           console.log(tuner.noteName);
-          note();
+          setNoteArray(noteArray);
         }}
         style={{ marginTop: "24rem" }}
       >
-        Note
+        <Link to="/tab">Tab It!</Link>
       </button>
     </div>
   );
