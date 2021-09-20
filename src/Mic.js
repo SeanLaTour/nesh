@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Wad from "web-audio-daw";
 
 function Mic() {
+  let noteArray = [];
   let recordings = [];
   let voice = new Wad({ source: "mic" });
   let tuner = new Wad.Poly({
@@ -29,34 +31,40 @@ function Mic() {
     }
   };
 
+  let reqAnim;
+
   const trackPitch = (toggle) => {
     if (toggle) {
-        tuner.updatePitch()
-      }
-      if (!toggle) {
-        tuner.stopUpdatingPitch()
-      }
-  }
+      console.log(reqAnim)
+      tuner.updatePitch();
+      noteArray.push(tuner.noteName);
+      reqAnim = window.requestAnimationFrame(trackPitch);
+    }
+    if (!toggle) {
+      console.log(reqAnim)
+      tuner.stopUpdatingPitch();
+      window.cancelAnimationFrame(reqAnim)
+    }
+  };
 
   const record = () => {
     run(true);
-    trackPitch(true)
+    trackPitch(true);
   };
 
   const recordOff = () => {
-    trackPitch(false)
+    trackPitch(false);
     run(false);
-    
   };
 
   const check = () => {
-    console.log(recordings);
+    console.log("recordings", recordings);
     recordings[0] && recordings[0].play();
   };
 
   const note = () => {
-      
-  }
+    console.log("noteArray", noteArray);
+  };
 
   return (
     <div>
@@ -79,6 +87,7 @@ function Mic() {
       <button
         onClick={() => {
           check();
+          
         }}
         style={{ marginTop: "24rem" }}
       >
@@ -86,7 +95,8 @@ function Mic() {
       </button>
       <button
         onClick={() => {
-          console.log(tuner.noteName)
+          console.log(tuner.noteName);
+          note();
         }}
         style={{ marginTop: "24rem" }}
       >
