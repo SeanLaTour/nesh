@@ -18,8 +18,10 @@ function Mic({ setNoteArray }) {
     },
   });
 
+  // Arm tuner.
   tuner.add(voice);
 
+  // This function will either begin or end a recording session.
   const run = (toggle) => {
     if (toggle) {
       voice.play();
@@ -31,10 +33,13 @@ function Mic({ setNoteArray }) {
     }
   };
 
+  // These variables assist with the functions below.
   let reqAnim;
   let count = 0;
 
+  // This function pushes the pitch to the noteArray to be sent to the tab component.
   const listenToPitch = (toggle) => {
+    count++;
     if (toggle) {
       noteArray.push({ count: count, note: tuner.noteName });
       reqAnim = window.requestAnimationFrame(listenToPitch);
@@ -44,70 +49,102 @@ function Mic({ setNoteArray }) {
     }
   };
 
+  // This function arms and disarms the pitch tracker and calls the listenToPitch function.
   const trackPitch = (toggle) => {
     if (toggle) {
-      count++;
-      console.log(count, tuner.noteName);
       tuner.updatePitch();
     }
     listenToPitch(toggle);
     if (!toggle) {
-      console.log(reqAnim);
       tuner.stopUpdatingPitch();
     }
   };
 
+  // Begin recording.
   const record = () => {
     run(true);
     trackPitch(true);
   };
 
+  // End recording.
   const recordOff = () => {
     trackPitch(false);
     run(false);
   };
 
+  // Listen to recording.
   const check = () => {
     console.log("recordings", recordings);
     recordings[0] && recordings[0].play();
   };
 
-  const note = () => {
-    console.log("noteArray", noteArray);
-  };
-
   return (
-    <div>
+    <div
+      style={{
+        margin: "8rem",
+        padding: "8rem",
+        borderStyle: "solid",
+        borderColor: "#6CC417",
+        borderRadius: "15px",
+      }}
+    >
       <button
+        style={{
+          padding: "1rem",
+          borderRadius: "15px",
+          borderStyle: "solid",
+          backgroundColor: "#6CC417",
+          marginTop: "24rem",
+          margin: "1rem",
+        }}
         onClick={() => {
           record();
         }}
-        style={{ marginTop: "24rem" }}
       >
         Record
       </button>
       <button
+        style={{
+          padding: "1rem",
+          borderRadius: "15px",
+          borderStyle: "solid",
+          backgroundColor: "#6CC417",
+          marginTop: "24rem",
+          margin: "1rem",
+        }}
         onClick={() => {
           recordOff();
         }}
-        style={{ marginTop: "24rem" }}
       >
         Stop
       </button>
       <button
+        style={{
+          padding: "1rem",
+          borderRadius: "15px",
+          borderStyle: "solid",
+          backgroundColor: "#6CC417",
+          marginTop: "24rem",
+          margin: "1rem",
+        }}
         onClick={() => {
           check();
         }}
-        style={{ marginTop: "24rem" }}
       >
         Listen
       </button>
       <button
+        style={{
+          padding: "1rem",
+          borderRadius: "15px",
+          borderStyle: "solid",
+          backgroundColor: "#6CC417",
+          marginTop: "24rem",
+          margin: "1rem",
+        }}
         onClick={() => {
-          console.log(tuner.noteName);
           setNoteArray(noteArray);
         }}
-        style={{ marginTop: "24rem" }}
       >
         <Link to="/tab">Tab It!</Link>
       </button>

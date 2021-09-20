@@ -13,20 +13,37 @@ function Tab({ noteArray }) {
       return ` ${note.note} `;
     }
   });
-  tab.toString().trim();
 
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        marginTop: "24rem",
+        padding: "4rem",
+        margin: "8rem",
+        borderStyle: "solid",
+        borderRadius: "10px",
+        borderColor: "#6CC417",
       }}
     >
-      <ul style={{ listStyleType: "none" }}>{tab}</ul>
+      <ul
+        style={{
+          listStyleType: "none",
+          marginRight: "2.5rem",
+          color: "#6CC417",
+        }}
+      >
+        {tab}
+      </ul>
       <Link to="/">
-        <button>Record Again</button>
+        <button
+          style={{
+            padding: "1rem",
+            borderRadius: "15px",
+            borderStyle: "solid",
+            backgroundColor: "#6CC417",
+          }}
+        >
+          Record Again
+        </button>
       </Link>
     </div>
   );
