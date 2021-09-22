@@ -36,27 +36,35 @@ function Mic({ setNoteArray }) {
   // These variables assist with the functions below.
   let reqAnim;
   let count = 0;
+  let timeout = 0;
+
+  function listenToPitch()  {
+    noteArray.push({ count: count, note: tuner.noteName })
+    timeout = setTimeout(listenToPitch, 2000)
+    console.log("timeout", timeout)
+  }
 
   // This function pushes the pitch to the noteArray to be sent to the tab component.
-  const listenToPitch = (toggle) => {
-    count++;
-    if (toggle) {
-      noteArray.push({ count: count, note: tuner.noteName });
-      reqAnim = window.requestAnimationFrame(listenToPitch);
-    } else {
-      count = 0;
-      window.cancelAnimationFrame(reqAnim);
-    }
-  };
+  // const listenToPitch = (toggle) => {
+  //   count++;
+  //   if (toggle) {
+  //     noteArray.push({ count: count, note: tuner.noteName });
+  //     reqAnim = window.requestAnimationFrame(listenToPitch);
+  //   } else {
+  //     count = 0;
+  //     window.cancelAnimationFrame(reqAnim);
+  //   }
+  // };
 
   // This function arms and disarms the pitch tracker and calls the listenToPitch function.
   const trackPitch = (toggle) => {
     if (toggle) {
       tuner.updatePitch();
     }
-    listenToPitch(toggle);
+    listenToPitch();
     if (!toggle) {
       tuner.stopUpdatingPitch();
+      clearTimeout(timeout)
     }
   };
 
@@ -70,6 +78,7 @@ function Mic({ setNoteArray }) {
   const recordOff = () => {
     trackPitch(false);
     run(false);
+
   };
 
   // Listen to recording.
