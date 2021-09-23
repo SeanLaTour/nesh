@@ -38,33 +38,30 @@ function Mic({ setNoteArray }) {
   let count = 0;
   let timeout = 0;
 
-  function listenToPitch()  {
-    noteArray.push({ count: count, note: tuner.noteName })
-    timeout = setTimeout(listenToPitch, 2000)
-    console.log("timeout", timeout)
-  }
-
-  // This function pushes the pitch to the noteArray to be sent to the tab component.
-  // const listenToPitch = (toggle) => {
-  //   count++;
-  //   if (toggle) {
-  //     noteArray.push({ count: count, note: tuner.noteName });
-  //     reqAnim = window.requestAnimationFrame(listenToPitch);
-  //   } else {
-  //     count = 0;
-  //     window.cancelAnimationFrame(reqAnim);
-  //   }
-  // };
+   // This function pushes the pitch to the noteArray to be sent to the tab component.
+  const listenToPitch = (toggle) => {
+    reqAnim = setTimeout(() => {
+      count++;
+      if (toggle) {
+        noteArray.push({ count: count, note: tuner.noteName })
+        console.log("IF", count)
+        listenToPitch(toggle)
+      } else {
+        console.log("ELSE", count)
+        count = 0;
+        clearTimeout(reqAnim)
+      }
+    }, 0);
+  };
 
   // This function arms and disarms the pitch tracker and calls the listenToPitch function.
   const trackPitch = (toggle) => {
     if (toggle) {
       tuner.updatePitch();
     }
-    listenToPitch();
+    listenToPitch(toggle);
     if (!toggle) {
       tuner.stopUpdatingPitch();
-      clearTimeout(timeout)
     }
   };
 
@@ -72,19 +69,20 @@ function Mic({ setNoteArray }) {
   const record = () => {
     run(true);
     trackPitch(true);
+
   };
 
   // End recording.
   const recordOff = () => {
+
     trackPitch(false);
     run(false);
-
   };
 
   // Listen to recording.
   const check = () => {
-    console.log("recordings", recordings);
-    recordings[0] && recordings[0].play();
+    console.log("noteArray:", noteArray);
+    //recordings[0] && recordings[0].play();
   };
 
   return (
