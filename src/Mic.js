@@ -38,18 +38,18 @@ function Mic({ setNoteArray }) {
   let count = 0;
   let timeout = 0;
 
-   // This function pushes the pitch to the noteArray to be sent to the tab component.
+  // This function pushes the pitch to the noteArray to be sent to the tab component.
   const listenToPitch = (toggle) => {
     reqAnim = setTimeout(() => {
       count++;
       if (toggle) {
-        noteArray.push({ count: count, note: tuner.noteName })
-        console.log("IF", count)
-        listenToPitch(toggle)
+        noteArray.push({ count: count, note: tuner.noteName });
+        console.log("IF", count);
+        listenToPitch(toggle);
       } else {
-        console.log("ELSE", count)
+        console.log("ELSE", count);
         count = 0;
-        clearTimeout(reqAnim)
+        clearTimeout(reqAnim);
       }
     }, 0);
   };
@@ -69,12 +69,10 @@ function Mic({ setNoteArray }) {
   const record = () => {
     run(true);
     trackPitch(true);
-
   };
 
   // End recording.
   const recordOff = () => {
-
     trackPitch(false);
     run(false);
   };
