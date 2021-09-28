@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
 import Wad from "web-audio-daw";
 
 function Mic({ setNoteArray }) {
@@ -44,10 +45,8 @@ function Mic({ setNoteArray }) {
       count++;
       if (toggle) {
         noteArray.push({ count: count, note: tuner.noteName });
-        console.log("IF", count);
         listenToPitch(toggle);
       } else {
-        console.log("ELSE", count);
         count = 0;
         clearTimeout(reqAnim);
       }
