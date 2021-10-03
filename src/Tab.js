@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// TODO: Something's wrong, good luck...
-
 function Tab({ noteArray }) {
   const transform = (note) => {
     switch (note) {
@@ -45,7 +43,7 @@ function Tab({ noteArray }) {
       case "A#3":
         return { string: "g", fret: "3" };
       case "B3":
-        return { string: "g", fret: "0" };
+        return { string: "b", fret: "0" };
       case "C4":
         return { string: "b", fret: "1" };
       case "C#4":
@@ -55,15 +53,15 @@ function Tab({ noteArray }) {
       case "D#4":
         return { string: "b", fret: "4" };
       case "E4":
-        return { string: "e", fret: "0" };
+        return { string: "e2", fret: "0" };
       case "F4":
-        return { string: "e", fret: "1" };
+        return { string: "e2", fret: "1" };
       case "F#4":
-        return { string: "e", fret: "2" };
+        return { string: "e2", fret: "2" };
       case "G4":
-        return { string: "e", fret: "3" };
+        return { string: "e2", fret: "3" };
       case "G#4":
-        return { string: "e", fret: "4" };
+        return { string: "e2", fret: "4" };
       default:
         return " ";
     }
@@ -121,7 +119,7 @@ function Tab({ noteArray }) {
   const bString = tabify(tabObj.b);
   const e2String = tabify(tabObj.e2);
 
-  console.log("string", eString);
+  console.log("tabObj", tabObj);
 
   return (
     <div
