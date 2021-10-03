@@ -79,10 +79,23 @@ function Tab({ noteArray }) {
     e2: "",
   };
 
+  let temp = "";
   noteArray.forEach((note) => {
-    console.log("note", note);
     let newNote = transform(note.note);
-    tabObj[newNote.string] += newNote.fret;
+    console.log("note", note.note, "temp", temp);
+    if (temp === note.note) {
+      temp = note.note;
+      return;
+    } else {
+      Object.keys(tabObj).forEach((string) => {
+        if (string === newNote.string) {
+          tabObj[newNote.string] += newNote.fret;
+        } else {
+          tabObj[string] += "-";
+        }
+      });
+      temp = note.note;
+    }
   });
 
   console.log("e", tabObj.e.split(""));
@@ -123,7 +136,7 @@ function Tab({ noteArray }) {
       <div style={{ textAlign: "left" }}>
         <div
           style={{
-            textOverflow: 'clip',
+            textOverflow: "clip",
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
@@ -134,7 +147,7 @@ function Tab({ noteArray }) {
         </div>
         <div
           style={{
-            textOverflow: 'clip',
+            textOverflow: "clip",
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
@@ -145,7 +158,7 @@ function Tab({ noteArray }) {
         </div>
         <div
           style={{
-            textOverflow: 'clip',
+            textOverflow: "clip",
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
@@ -156,7 +169,7 @@ function Tab({ noteArray }) {
         </div>
         <div
           style={{
-            textOverflow: 'clip',
+            textOverflow: "clip",
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
@@ -167,7 +180,7 @@ function Tab({ noteArray }) {
         </div>
         <div
           style={{
-            textOverflow: 'clip',
+            textOverflow: "clip",
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
@@ -178,7 +191,7 @@ function Tab({ noteArray }) {
         </div>
         <div
           style={{
-            textOverflow: 'clip',
+            textOverflow: "clip",
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
