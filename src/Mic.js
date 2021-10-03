@@ -83,6 +83,9 @@ function Mic({ setNoteArray }) {
   };
 
   return (
+    <div>
+      <h1 style={{color: "#6CC417"}}>S-Toner</h1>
+      <p style={{color: "#6CC417"}}>Remember your licks, write your songs, tune your guitar and much, much more!</p>
     <div
       style={{
         margin: "8rem",
@@ -152,6 +155,7 @@ function Mic({ setNoteArray }) {
       >
         <Link to="/tab">Tab It!</Link>
       </button>
+    </div>
     </div>
   );
 }

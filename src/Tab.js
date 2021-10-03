@@ -38,7 +38,7 @@ function Tab({ noteArray }) {
         return { string: "g", fret: "0" };
       case "G#3":
         return { string: "g", fret: "1" };
-      case "G3":
+      case "A3":
         return { string: "g", fret: "2" };
       case "A#3":
         return { string: "g", fret: "3" };
