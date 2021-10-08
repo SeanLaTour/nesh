@@ -362,11 +362,19 @@ function Tab({ noteArray }) {
     }
   };
 
-  const handleButtonPosition = () => {
+  const handleButtonPositionUp = () => {
     if (position < 5) {
       setPosition(position + 1);
     } else {
       setPosition(0);
+    }
+  };
+
+  const handleButtonPositionDown = () => {
+    if (position > 0) {
+      setPosition(position - 1);
+    } else {
+      setPosition(4);
     }
   };
 
@@ -520,9 +528,21 @@ function Tab({ noteArray }) {
           borderStyle: "solid",
           backgroundColor: "#6CC417",
         }}
-        onClick={handleButtonPosition}
+        onClick={handleButtonPositionUp}
       >
         Position +
+      </button>
+      <button
+        style={{
+          borderStyle: "solid",
+          padding: "1rem",
+          borderRadius: "15px",
+          borderStyle: "solid",
+          backgroundColor: "#6CC417",
+        }}
+        onClick={handleButtonPositionDown}
+      >
+        Position -
       </button>
     </div>
   );
