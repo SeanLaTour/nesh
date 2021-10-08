@@ -84,78 +84,81 @@ function Mic({ setNoteArray }) {
 
   return (
     <div>
-      <h1 style={{color: "#6CC417"}}>S-Toner</h1>
-      <p style={{color: "#6CC417"}}>Remember your licks, write your songs, tune your guitar and much, much more!</p>
-    <div
-      style={{
-        margin: "8rem",
-        padding: "8rem",
-        borderStyle: "solid",
-        borderColor: "#6CC417",
-        borderRadius: "15px",
-      }}
-    >
-      <button
+      <h1 style={{ color: "#6CC417" }}>S-Toner</h1>
+      <p style={{ color: "#6CC417" }}>
+        Remember your licks, write your songs, tune your guitar and much, much
+        more!
+      </p>
+      <div
         style={{
-          padding: "1rem",
-          borderRadius: "15px",
+          margin: "8rem",
+          padding: "8rem",
           borderStyle: "solid",
-          backgroundColor: "#6CC417",
-          marginTop: "24rem",
-          margin: "1rem",
-        }}
-        onClick={() => {
-          record();
+          borderColor: "#6CC417",
+          borderRadius: "15px",
         }}
       >
-        Record
-      </button>
-      <button
-        style={{
-          padding: "1rem",
-          borderRadius: "15px",
-          borderStyle: "solid",
-          backgroundColor: "#6CC417",
-          marginTop: "24rem",
-          margin: "1rem",
-        }}
-        onClick={() => {
-          recordOff();
-        }}
-      >
-        Stop
-      </button>
-      <button
-        style={{
-          padding: "1rem",
-          borderRadius: "15px",
-          borderStyle: "solid",
-          backgroundColor: "#6CC417",
-          marginTop: "24rem",
-          margin: "1rem",
-        }}
-        onClick={() => {
-          check();
-        }}
-      >
-        Listen
-      </button>
-      <button
-        style={{
-          padding: "1rem",
-          borderRadius: "15px",
-          borderStyle: "solid",
-          backgroundColor: "#6CC417",
-          marginTop: "24rem",
-          margin: "1rem",
-        }}
-        onClick={() => {
-          setNoteArray(noteArray);
-        }}
-      >
-        <Link to="/tab">Tab It!</Link>
-      </button>
-    </div>
+        <button
+          style={{
+            padding: "1rem",
+            borderRadius: "15px",
+            borderStyle: "solid",
+            backgroundColor: "#6CC417",
+            marginTop: "24rem",
+            margin: "1rem",
+          }}
+          onClick={() => {
+            record();
+          }}
+        >
+          Record
+        </button>
+        <button
+          style={{
+            padding: "1rem",
+            borderRadius: "15px",
+            borderStyle: "solid",
+            backgroundColor: "#6CC417",
+            marginTop: "24rem",
+            margin: "1rem",
+          }}
+          onClick={() => {
+            recordOff();
+          }}
+        >
+          Stop
+        </button>
+        <button
+          style={{
+            padding: "1rem",
+            borderRadius: "15px",
+            borderStyle: "solid",
+            backgroundColor: "#6CC417",
+            marginTop: "24rem",
+            margin: "1rem",
+          }}
+          onClick={() => {
+            check();
+          }}
+        >
+          Listen
+        </button>
+        <button
+          style={{
+            padding: "1rem",
+            borderRadius: "15px",
+            borderStyle: "solid",
+            backgroundColor: "#6CC417",
+            marginTop: "24rem",
+            margin: "1rem",
+          }}
+          onClick={() => {
+            setNoteArray(noteArray);
+          }}
+        >
+          <Link to="/tab">Tab It!</Link>
+        </button>
+      </div>
     </div>
   );
 }
