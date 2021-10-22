@@ -194,7 +194,7 @@ function Tab({ noteArray }) {
           return { string: "g", fret: "9" };
         } else if (position === 3) {
           return { string: "d", fret: "(14)" };
-        } else if (position >= 3) {
+        } else if (position === 4) {
           return { string: "a", fret: "(19)" };
         }
       case "F4":
@@ -206,7 +206,7 @@ function Tab({ noteArray }) {
           return { string: "g", fret: "(10)" };
         } else if (position === 3) {
           return { string: "d", fret: "(15)" };
-        } else if (position >= 3) {
+        } else if (position === 4) {
           return { string: "a", fret: "(20)" };
         }
       case "F#4":
@@ -218,7 +218,7 @@ function Tab({ noteArray }) {
           return { string: "g", fret: "(11)" };
         } else if (position === 3) {
           return { string: "d", fret: "(16)" };
-        } else if (position >= 3) {
+        } else if (position === 4) {
           return { string: "a", fret: "(21)" };
         }
       case "G4":
@@ -230,122 +230,122 @@ function Tab({ noteArray }) {
           return { string: "g", fret: "(12)" };
         } else if (position === 3) {
           return { string: "d", fret: "(17)" };
-        } else if (position >= 3) {
+        } else if (position === 4) {
           return { string: "a", fret: "(22)" };
         }
       case "G#4":
-        if (position === 0) {
+        if (position <= 1) {
           return { string: "e2", fret: "4" };
-        } else if (position === 1) {
-          return { string: "b", fret: "9" };
         } else if (position === 2) {
+          return { string: "b", fret: "9" };
+        } else if (position === 3) {
           return { string: "g", fret: "(13)" };
-        } else if (position >= 3) {
+        } else if (position === 4) {
           return { string: "d", fret: "(18)" };
         }
       case "A4":
-        if (position === 0) {
+        if (position <= 1) {
           return { string: "e2", fret: "5" };
-        } else if (position === 1) {
-          return { string: "b", fret: "(10)" };
         } else if (position === 2) {
+          return { string: "b", fret: "(10)" };
+        } else if (position === 3) {
           return { string: "g", fret: "(14)" };
-        } else if (position >= 3) {
+        } else if (position === 4) {
           return { string: "d", fret: "(19)" };
         }
       case "A#4":
-        if (position === 0) {
+        if (position <= 1) {
           return { string: "e2", fret: "6" };
-        } else if (position === 1) {
-          return { string: "b", fret: "(11)" };
         } else if (position === 2) {
+          return { string: "b", fret: "(11)" };
+        } else if (position === 3) {
           return { string: "g", fret: "(15)" };
-        } else if (position >= 3) {
+        } else if (position === 4) {
           return { string: "d", fret: "(20)" };
         }
       case "B4":
-        if (position === 0) {
+        if (position <= 1) {
           return { string: "e2", fret: "7" };
-        } else if (position === 1) {
-          return { string: "b", fret: "(12)" };
         } else if (position === 2) {
+          return { string: "b", fret: "(12)" };
+        } else if (position === 3) {
           return { string: "g", fret: "(16)" };
-        } else if (position >= 3) {
+        } else if (position === 4) {
           return { string: "d", fret: "(21)" };
         }
       case "C5":
-        if (position === 0) {
+        if (position <= 1) {
           return { string: "e2", fret: "8" };
-        } else if (position === 1) {
-          return { string: "b", fret: "(13)" };
         } else if (position === 2) {
+          return { string: "b", fret: "(13)" };
+        } else if (position === 3) {
           return { string: "g", fret: "(17)" };
-        } else if (position >= 3) {
+        } else if (position === 4) {
           return { string: "d", fret: "(22)" };
         }
       case "C#5":
-        if (position === 0) {
+        if (position <= 2) {
           return { string: "e2", fret: "9" };
-        } else if (position === 1) {
+        } else if (position === 3) {
           return { string: "b", fret: "(14)" };
-        } else if (position >= 2) {
+        } else if (position === 4) {
           return { string: "g", fret: "(18)" };
         }
       case "D5":
-        if (position === 0) {
+        if (position <= 2) {
           return { string: "e2", fret: "(10)" };
-        } else if (position === 1) {
+        } else if (position === 3) {
           return { string: "b", fret: "(15)" };
-        } else if (position >= 2) {
+        } else if (position === 4) {
           return { string: "g", fret: "(19)" };
         }
       case "D#5":
-        if (position === 0) {
+        if (position <= 2) {
           return { string: "e2", fret: "(11)" };
-        } else if (position === 1) {
+        } else if (position === 3) {
           return { string: "b", fret: "(16)" };
-        } else if (position >= 2) {
+        } else if (position === 4) {
           return { string: "g", fret: "(20)" };
         }
       case "E5":
-        if (position === 0) {
+        if (position <= 2) {
           return { string: "e2", fret: "(12)" };
-        } else if (position === 1) {
+        } else if (position === 3) {
           return { string: "b", fret: "(17)" };
-        } else if (position >= 2) {
+        } else if (position === 4) {
           return { string: "g", fret: "(21)" };
         }
       case "F5":
-        if (position === 0) {
+        if (position <= 2) {
           return { string: "e2", fret: "(13)" };
-        } else if (position === 1) {
+        } else if (position === 3) {
           return { string: "b", fret: "(18)" };
-        } else if (position >= 2) {
+        } else if (position === 4) {
           return { string: "g", fret: "(22)" };
         }
       case "F#5":
-        if (position === 0) {
+        if (position <= 3) {
           return { string: "e2", fret: "(14)" };
-        } else if (position >= 1) {
+        } else if (position === 4) {
           return { string: "b", fret: "(19)" };
         }
       case "G5":
-        if (position === 0) {
+        if (position <= 3) {
           return { string: "e2", fret: "(15)" };
-        } else if (position >= 1) {
+        } else if (position === 4) {
           return { string: "b", fret: "(20)" };
         }
       case "G#5":
-        if (position === 0) {
+        if (position <= 3) {
           return { string: "e2", fret: "(16)" };
-        } else if (position >= 1) {
+        } else if (position === 4) {
           return { string: "b", fret: "(21)" };
         }
       case "A5":
-        if (position === 0) {
+        if (position <= 3) {
           return { string: "e2", fret: "(17)" };
-        } else if (position >= 1) {
-          return { string: "b", fret: "22" };
+        } else if (position === 4) {
+          return { string: "b", fret: "(22)" };
         }
       case "A#5":
         return { string: "e2", fret: "(18)" };
@@ -363,7 +363,7 @@ function Tab({ noteArray }) {
   };
 
   const handleButtonPositionUp = () => {
-    if (position < 5) {
+    if (position < 4) {
       setPosition(position + 1);
     } else {
       setPosition(0);
@@ -556,6 +556,7 @@ function Tab({ noteArray }) {
       >
         Position -
       </button>
+      <h2 style={{ color: "green" }}>Position: {position + 1}</h2>
     </div>
   );
 }
