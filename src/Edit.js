@@ -7,18 +7,30 @@ import Modal from "react-modal";
 
 function Edit({ noteArray }) {
   const [position, setPosition] = useState(0);
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [modalIsOpen, setIsOpen] = React.useState(false);
   console.log(noteArray);
 
   const customStyles = {
+    overlay: {
+      position: "fixed",
+      top: "10%",
+      left: "10%",
+      right: "10%",
+      bottom: "10%",
+      backgroundColor: "rgba(255, 200, 0, 0.75)",
+      borderRadius: "20px",
+    },
     content: {
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
       top: "50%",
       left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      backgroundColor: "rgba(255, 200, 0, 0.75)",
     },
   };
 
@@ -62,8 +74,10 @@ function Edit({ noteArray }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
       >
-        HEY
-        <button onClick={closeModal}>close</button>
+        <label>Change the note</label>
+        <input></input>
+        <button>Change</button>
+        <button onClick={closeModal}>Quit</button>
       </Modal>
       <h1 color="green">Edit</h1>
       <div
