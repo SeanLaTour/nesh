@@ -384,7 +384,6 @@ export const tabify = (array) => {
 export const tabifyForEdit = (array) => {
   console.log("TABIFY", array);
   let temp = false;
-  let doubleDigit = false;
   return array.map((fret) => {
     if (temp) {
       temp = !temp;
@@ -429,7 +428,7 @@ export const generateTabObj = (noteArray, position) => {
   return tabObj;
 };
 
-export const generateTabObjForEdit = (noteArray, position) => {
+export const generateTabObjForEdit = (noteArray, position, buttonFunction) => {
   console.log("noteArray", noteArray);
   let tabObj = {
     e: [],
@@ -451,7 +450,7 @@ export const generateTabObjForEdit = (noteArray, position) => {
         if (string === newNote.string) {
           tabObj[newNote.string].push(
             <button
-              onClick={handleEditButton}
+              onClick={buttonFunction}
               id={index}
               style={{ backgroundColor: "rgb(0,0,0,0)", color: "green" }}
             >
@@ -461,7 +460,7 @@ export const generateTabObjForEdit = (noteArray, position) => {
         } else {
           tabObj[string].push(
             <button
-              onClick={handleEditButton}
+              onClick={buttonFunction}
               style={{ backgroundColor: "rgb(0,0,0,0)", color: "green" }}
             >
               -
@@ -474,8 +473,4 @@ export const generateTabObjForEdit = (noteArray, position) => {
   });
 
   return tabObj;
-};
-
-const handleEditButton = (e) => {
-  console.log(e);
 };

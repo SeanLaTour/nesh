@@ -3,21 +3,24 @@ import { Link } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import { tabifyForEdit, generateTabObjForEdit } from "./services/utils";
 import { useDisclosure } from "@chakra-ui/hooks";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-} from "@chakra-ui/react";
+import Modal from "react-modal";
 
 function Edit({ noteArray }) {
   const [position, setPosition] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [modalIsOpen, setIsOpen] = React.useState(false);
   console.log(noteArray);
+
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
 
   const handleButtonPositionUp = () => {
     if (position < 4) {
@@ -35,7 +38,7 @@ function Edit({ noteArray }) {
     }
   };
 
-  const tabObj = generateTabObjForEdit(noteArray, position);
+  const tabObj = generateTabObjForEdit(noteArray, position, openModal);
 
   const eString = tabifyForEdit(tabObj.e);
   const aString = tabifyForEdit(tabObj.a);
@@ -44,33 +47,23 @@ function Edit({ noteArray }) {
   const bString = tabifyForEdit(tabObj.b);
   const e2String = tabifyForEdit(tabObj.e2);
 
-  const renderModal = () => {
-    return (
-      <div>
-        <p>Button</p>
-      </div>
-    );
-  };
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div>
       <Modal
-        size="md"
-        isOpen={isOpen}
-        onClose={onClose}
+        style={customStyles}
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
       >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader color="green">Modal Title</ModalHeader>
-          <ModalBody color="green">HERE IS THE BODY</ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
-        </ModalContent>
+        HEY
+        <button onClick={closeModal}>close</button>
       </Modal>
       <h1 color="green">Edit</h1>
       <div
@@ -205,7 +198,7 @@ function Edit({ noteArray }) {
                 borderStyle: "solid",
                 backgroundColor: "#6CC417",
               }}
-              onClick={onOpen}
+              onClick={openModal}
             >
               modal
             </button>
