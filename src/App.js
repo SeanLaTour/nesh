@@ -3,6 +3,7 @@ import Mic from "./Mic";
 import Tab from "./Tab";
 import { Switch, Route } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
+import Edit from "./Edit";
 
 function App() {
   const [noteArray, setNoteArray] = useState([]);
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route path="/tab">
           <Tab noteArray={noteArray} />
+        </Route>
+        <Route>
+          <Edit noteArray={noteArray} />
         </Route>
       </Switch>
     </div>

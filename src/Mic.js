@@ -84,7 +84,7 @@ function Mic({ setNoteArray }) {
 
   return (
     <div>
-      <h1 style={{ color: "#6CC417" }}>S-Toner</h1>
+      <h1 style={{ color: "#6CC417" }}>Nesh</h1>
       <p style={{ color: "#6CC417" }}>
         Remember your licks, write your songs, tune your guitar and much, much
         more!
@@ -142,6 +142,21 @@ function Mic({ setNoteArray }) {
           }}
         >
           Listen
+        </button>
+        <button
+          style={{
+            padding: "1rem",
+            borderRadius: "15px",
+            borderStyle: "solid",
+            backgroundColor: "#6CC417",
+            marginTop: "24rem",
+            margin: "1rem",
+          }}
+          onClick={() => {
+            setNoteArray(noteArray);
+          }}
+        >
+          <Link to="/edit">Edit</Link>
         </button>
         <button
           style={{
