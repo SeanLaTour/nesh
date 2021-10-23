@@ -2,9 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import { tabifyForEdit, generateTabObjForEdit } from "./services/utils";
+import { useDisclosure } from "@chakra-ui/hooks";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+} from "@chakra-ui/react";
 
 function Edit({ noteArray }) {
   const [position, setPosition] = useState(0);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   console.log(noteArray);
 
   const handleButtonPositionUp = () => {
@@ -24,7 +36,6 @@ function Edit({ noteArray }) {
   };
 
   const tabObj = generateTabObjForEdit(noteArray, position);
-  console.log("TABOBJ", tabObj);
 
   const eString = tabifyForEdit(tabObj.e);
   const aString = tabifyForEdit(tabObj.a);
@@ -33,9 +44,35 @@ function Edit({ noteArray }) {
   const bString = tabifyForEdit(tabObj.b);
   const e2String = tabifyForEdit(tabObj.e2);
 
+  const renderModal = () => {
+    return (
+      <div>
+        <p>Button</p>
+      </div>
+    );
+  };
+
   return (
     <div>
-      <h1>Edit</h1>
+      <Modal
+        size="md"
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader color="green">Modal Title</ModalHeader>
+          <ModalBody color="green">HERE IS THE BODY</ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <h1 color="green">Edit</h1>
       <div
         style={{
           padding: "4rem",
@@ -159,6 +196,18 @@ function Edit({ noteArray }) {
               onClick={handleButtonPositionDown}
             >
               Position -
+            </button>
+            <button
+              style={{
+                borderStyle: "solid",
+                padding: "1rem",
+                borderRadius: "15px",
+                borderStyle: "solid",
+                backgroundColor: "#6CC417",
+              }}
+              onClick={onOpen}
+            >
+              modal
             </button>
           </div>
           <h2 style={{ color: "green" }}>Position: {position + 1}</h2>

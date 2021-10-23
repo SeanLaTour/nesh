@@ -1,5 +1,3 @@
-import EditTabModal from "../components/editTabModal";
-
 export const transform = (note, position = 0) => {
   switch (note) {
     case "E2":
@@ -479,5 +477,5 @@ export const generateTabObjForEdit = (noteArray, position) => {
 };
 
 const handleEditButton = (e) => {
-  window.prompt("heelo");
+  console.log(e);
 };
