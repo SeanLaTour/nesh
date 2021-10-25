@@ -7,6 +7,7 @@ import Edit from "./Edit";
 
 function App() {
   const [noteArray, setNoteArray] = useState([]);
+  const [position, setPosition] = useState(0);
 
   return (
     <div className="App">
@@ -15,10 +16,18 @@ function App() {
           <Mic setNoteArray={setNoteArray} />
         </Route>
         <Route path="/tab">
-          <Tab noteArray={noteArray} />
+          <Tab
+            position={position}
+            setPosition={setPosition}
+            noteArray={noteArray}
+          />
         </Route>
         <Route>
-          <Edit noteArray={noteArray} />
+          <Edit
+            position={position}
+            setPosition={setPosition}
+            noteArray={noteArray}
+          />
         </Route>
       </Switch>
     </div>

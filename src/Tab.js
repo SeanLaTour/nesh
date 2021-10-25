@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import { tabify, generateTabObj } from "./services/utils";
 
-function Tab({ noteArray }) {
-  const [position, setPosition] = useState(0);
-  console.log(noteArray);
-
+function Tab({ noteArray, position, setPosition }) {
   const handleButtonPositionUp = () => {
     if (position < 4) {
       setPosition(position + 1);
@@ -156,6 +153,18 @@ function Tab({ noteArray }) {
             onClick={handleButtonPositionDown}
           >
             Position -
+          </button>
+          <button
+            style={{
+              padding: "1rem",
+              borderRadius: "15px",
+              borderStyle: "solid",
+              backgroundColor: "#6CC417",
+              marginTop: "24rem",
+              margin: "1rem",
+            }}
+          >
+            <Link to="/edit">Edit</Link>
           </button>
         </div>
         <h2 style={{ color: "green" }}>Position: {position + 1}</h2>

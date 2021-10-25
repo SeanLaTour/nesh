@@ -11,6 +11,12 @@
   pointer-events: none;
 }
 
+.tab-button:hover {
+  border: 2px;
+  border-width: 2px;
+  border-style: solid;
+}
+
 h1,
 p,
 a,

@@ -382,7 +382,6 @@ export const tabify = (array) => {
 };
 
 export const tabifyForEdit = (array) => {
-  console.log("TABIFY", array);
   let temp = false;
   return array.map((fret) => {
     if (temp) {
@@ -450,18 +449,42 @@ export const generateTabObjForEdit = (noteArray, position, buttonFunction) => {
         if (string === newNote.string) {
           tabObj[newNote.string].push(
             <button
-              onClick={buttonFunction}
+              onClick={(e) => buttonFunction(e)}
               id={index}
-              style={{ backgroundColor: "rgb(0,0,0,0)", color: "green" }}
+              name={newNote.string}
+              className="tab-button"
+              style={{
+                width: "2rem",
+                backgroundColor: "rgb(0,0,0,0)",
+                color: "red",
+                padding: ".5rem",
+                border: "0",
+                background: "none",
+                boxShadow: "none",
+                borderRadius: "0px",
+              }}
             >
-              {newNote.fret}
+              {newNote.fret.length > 1
+                ? newNote.fret.split("").splice(1, 2).join("")
+                : newNote.fret}
             </button>
           );
         } else {
           tabObj[string].push(
             <button
-              onClick={buttonFunction}
-              style={{ backgroundColor: "rgb(0,0,0,0)", color: "green" }}
+              onClick={(e) => buttonFunction(e)}
+              className="tab-button"
+              name={string}
+              style={{
+                width: "2rem",
+                backgroundColor: "rgb(0,0,0,0)",
+                color: "green",
+                padding: ".5rem",
+                border: "0",
+                background: "none",
+                boxShadow: "none",
+                borderRadius: "0px",
+              }}
             >
               -
             </button>
