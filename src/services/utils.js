@@ -428,7 +428,6 @@ export const generateTabObj = (noteArray, position) => {
 };
 
 export const generateTabObjForEdit = (noteArray, position, buttonFunction) => {
-  console.log("noteArray", noteArray);
   let tabObj = {
     e: [],
     a: [],

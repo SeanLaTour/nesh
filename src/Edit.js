@@ -77,7 +77,7 @@ function Edit({ noteArray, position, setPosition }) {
       position: e.target.id,
       string: e.target.name,
     });
-    console.log(currentNote);
+    console.log("CURRENTNOTE", currentNote);
     setIsOpen(true);
   }
 
@@ -87,46 +87,47 @@ function Edit({ noteArray, position, setPosition }) {
 
   function handleSubmitEditButton() {
     closeModal();
-    console.log("TABOBJ", tabObj);
     const string = currentNote.string;
     const position = currentNote.position;
-    tabObj[string].forEach((button, index) => {
-      if (button.props.id == position) {
-        tabObj[string][index] = (
-          <button
-            onClick={(e) => openModal(e)}
-            className="tab-button"
-            style={{
-              width: "2rem",
-              backgroundColor: "rgb(0,0,0,0)",
-              color: "red",
-              padding: ".5rem",
-              border: "0",
-              background: "none",
-              boxShadow: "none",
-              borderRadius: "0px",
-            }}
-          >
-            {fretInput}
-          </button>
-        );
-        switch (string) {
-          case "e":
-            setEString(tabObj.e);
-          case "a":
-            setAString(tabObj.a);
-          case "d":
-            setDString(tabObj.d);
-          case "g":
-            setGString(tabObj.g);
-          case "b":
-            setBString(tabObj.b);
-          case "e2":
-            setE2String(tabObj.e2);
+    if (tabObj[string])
+      tabObj[string].forEach((button, index) => {
+        if (button.props.id == position) {
+          tabObj[string][index] = (
+            <button
+              onClick={(e) => openModal(e)}
+              className="tab-button"
+              id={parseInt(position)}
+              name={string}
+              style={{
+                width: "2rem",
+                backgroundColor: "rgb(0,0,0,0)",
+                color: "red",
+                padding: ".5rem",
+                border: "0",
+                background: "none",
+                boxShadow: "none",
+                borderRadius: "0px",
+              }}
+            >
+              {fretInput}
+            </button>
+          );
+          switch (string) {
+            case "e":
+              setEString(tabifyForEdit(tabObj.e));
+            case "a":
+              setAString(tabifyForEdit(tabObj.a));
+            case "d":
+              setDString(tabifyForEdit(tabObj.d));
+            case "g":
+              setGString(tabifyForEdit(tabObj.g));
+            case "b":
+              setBString(tabifyForEdit(tabObj.b));
+            case "e2":
+              setE2String(tabifyForEdit(tabObj.e2));
+          }
         }
-      }
-    });
-    console.log("TABOBJ AFTER", tabObj);
+      });
     setToggle(!toggle);
   }
 
