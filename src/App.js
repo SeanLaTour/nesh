@@ -4,6 +4,7 @@ import Tab from "./Tab";
 import { Switch, Route } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import Edit from "./Edit";
+import Publish from "./Publish";
 
 function App() {
   const [noteArray, setNoteArray] = useState([]);
@@ -21,6 +22,9 @@ function App() {
             setPosition={setPosition}
             noteArray={noteArray}
           />
+        </Route>
+        <Route path="/publish">
+          <Publish />
         </Route>
         <Route>
           <Edit

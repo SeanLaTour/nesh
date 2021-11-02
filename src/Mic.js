@@ -4,6 +4,7 @@ import { useState } from "react/cjs/react.development";
 import Wad from "web-audio-daw";
 
 function Mic({ setNoteArray }) {
+  window.localStorage.setItem("tabObj", null);
   let noteArray = [];
   let recordings = [];
   let voice = new Wad({ source: "mic" });

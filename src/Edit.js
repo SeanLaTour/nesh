@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
-import { tabifyForEdit, generateTabObjForEdit } from "./services/utils";
+import {
+  tabifyForEdit,
+  generateTabObjForEdit,
+  generateTabObjFromPrevious,
+} from "./services/utils";
 import Modal from "react-modal";
 
 function Edit({ noteArray, position, setPosition }) {
+  const previousTabObj = JSON.parse(window.localStorage.getItem("tabObj"));
+  console.log("prevObj", previousTabObj);
   const [eString, setEString] = useState([]);
   const [aString, setAString] = useState([]);
   const [dString, setDString] = useState([]);
@@ -12,7 +18,9 @@ function Edit({ noteArray, position, setPosition }) {
   const [bString, setBString] = useState([]);
   const [e2String, setE2String] = useState([]);
   const [tabObj, setTabObj] = useState(
-    generateTabObjForEdit(noteArray, position, openModal)
+    previousTabObj
+      ? generateTabObjFromPrevious(previousTabObj, openModal)
+      : generateTabObjForEdit(noteArray, position, openModal)
   );
   const [modalIsOpen, setIsOpen] = useState(false);
   const [currentNote, setCurrentNote] = useState({});
@@ -62,6 +70,23 @@ function Edit({ noteArray, position, setPosition }) {
     }
   };
 
+  const handlePublish = () => {
+    const tabObjForStorage = {
+      e: "",
+      a: "",
+      d: "",
+      g: "",
+      b: "",
+      e2: "",
+    };
+    Object.entries(tabObj).forEach((string) => {
+      string[1].forEach((note) => {
+        tabObjForStorage[string[0]] += note.props.children;
+      });
+    });
+    window.localStorage.setItem("tabObj", JSON.stringify(tabObjForStorage));
+  };
+
   useEffect(() => {
     setEString(tabifyForEdit(tabObj.e));
     setAString(tabifyForEdit(tabObj.a));
@@ -77,7 +102,6 @@ function Edit({ noteArray, position, setPosition }) {
       position: e.target.id,
       string: e.target.name,
     });
-    console.log("CURRENTNOTE", currentNote);
     setIsOpen(true);
   }
 
@@ -280,8 +304,9 @@ function Edit({ noteArray, position, setPosition }) {
             >
               Position -
             </button>
-            <Link to="/tab">
+            <Link to="/publish">
               <button
+                onClick={handlePublish}
                 style={{
                   borderStyle: "solid",
                   padding: "1rem",
@@ -290,7 +315,7 @@ function Edit({ noteArray, position, setPosition }) {
                   backgroundColor: "#6CC417",
                 }}
               >
-                To Tab
+                Publish
               </button>
             </Link>
           </div>

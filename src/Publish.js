@@ -1,26 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { tabify, generateTabObj } from "./services/utils";
+import { tabify } from "./services/utils";
 
-function Tab({ noteArray, position, setPosition }) {
-  const handleButtonPositionUp = () => {
-    if (position < 4) {
-      setPosition(position + 1);
-    } else {
-      setPosition(0);
-    }
-  };
-
-  const handleButtonPositionDown = () => {
-    if (position > 0) {
-      setPosition(position - 1);
-    } else {
-      setPosition(4);
-    }
-  };
-
-  const tabObj = generateTabObj(noteArray, position);
-
+function Publish() {
+  const tabObj = JSON.parse(window.localStorage.getItem("tabObj"));
   const eString = tabify(tabObj.e);
   const aString = tabify(tabObj.a);
   const dString = tabify(tabObj.d);
@@ -131,30 +114,6 @@ function Tab({ noteArray, position, setPosition }) {
           </Link>
           <button
             style={{
-              borderStyle: "solid",
-              padding: "1rem",
-              borderRadius: "15px",
-              borderStyle: "solid",
-              backgroundColor: "#6CC417",
-            }}
-            onClick={handleButtonPositionUp}
-          >
-            Position +
-          </button>
-          <button
-            style={{
-              borderStyle: "solid",
-              padding: "1rem",
-              borderRadius: "15px",
-              borderStyle: "solid",
-              backgroundColor: "#6CC417",
-            }}
-            onClick={handleButtonPositionDown}
-          >
-            Position -
-          </button>
-          <button
-            style={{
               padding: "1rem",
               borderRadius: "15px",
               borderStyle: "solid",
@@ -166,10 +125,9 @@ function Tab({ noteArray, position, setPosition }) {
             <Link to="/edit">Edit</Link>
           </button>
         </div>
-        <h2 style={{ color: "green" }}>Position: {position + 1}</h2>
       </div>
     </div>
   );
 }
 
-export default Tab;
+export default Publish;

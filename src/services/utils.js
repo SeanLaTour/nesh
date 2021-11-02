@@ -496,3 +496,64 @@ export const generateTabObjForEdit = (noteArray, position, buttonFunction) => {
 
   return tabObj;
 };
+
+export const generateTabObjFromPrevious = (previousTabObj, buttonFunction) => {
+  let tabObj = {
+    e: [],
+    a: [],
+    d: [],
+    g: [],
+    b: [],
+    e2: [],
+  };
+  Object.entries(previousTabObj).forEach((string) => {
+    console.log(string[1]);
+    const tempString = string[1].split("");
+    tempString.forEach((note, index) => {
+      if (note === "-") {
+        tabObj[string[0]].push(
+          <button
+            onClick={(e) => buttonFunction(e)}
+            className="tab-button"
+            name={string[0]}
+            style={{
+              width: "2rem",
+              backgroundColor: "rgb(0,0,0,0)",
+              color: "green",
+              padding: ".5rem",
+              border: "0",
+              background: "none",
+              boxShadow: "none",
+              borderRadius: "0px",
+            }}
+          >
+            -
+          </button>
+        );
+      } else {
+        tabObj[string[0]].push(
+          <button
+            onClick={(e) => buttonFunction(e)}
+            id={index}
+            name={string[0]}
+            className="tab-button"
+            style={{
+              width: "2rem",
+              backgroundColor: "rgb(0,0,0,0)",
+              color: "red",
+              padding: ".5rem",
+              border: "0",
+              background: "none",
+              boxShadow: "none",
+              borderRadius: "0px",
+            }}
+          >
+            {note}
+          </button>
+        );
+      }
+    });
+  });
+  console.log(tabObj);
+  return tabObj;
+};
