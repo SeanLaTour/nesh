@@ -85,8 +85,8 @@ function Mic({ setNoteArray }) {
 
   return (
     <div>
-      <h1 style={{ color: "#6CC417" }}>Nesh</h1>
-      <p style={{ color: "#6CC417" }}>
+      <h1 style={{ color: "#686868" }}>Nesh</h1>
+      <p style={{ color: "#686868" }}>
         Remember your licks, write your songs, tune your guitar and much, much
         more!
       </p>
@@ -95,7 +95,7 @@ function Mic({ setNoteArray }) {
           margin: "2rem",
           padding: "2rem",
           borderStyle: "solid",
-          borderColor: "#6CC417",
+          borderColor: "#464646",
           borderRadius: "15px",
         }}
       >
@@ -104,7 +104,7 @@ function Mic({ setNoteArray }) {
             padding: "1rem",
             borderRadius: "15px",
             borderStyle: "solid",
-            backgroundColor: "#6CC417",
+            backgroundColor: "#464646",
             marginTop: "24rem",
             margin: "1rem",
           }}
@@ -119,7 +119,7 @@ function Mic({ setNoteArray }) {
             padding: "1rem",
             borderRadius: "15px",
             borderStyle: "solid",
-            backgroundColor: "#6CC417",
+            backgroundColor: "#464646",
             marginTop: "24rem",
             margin: "1rem",
           }}
@@ -134,7 +134,7 @@ function Mic({ setNoteArray }) {
             padding: "1rem",
             borderRadius: "15px",
             borderStyle: "solid",
-            backgroundColor: "#6CC417",
+            backgroundColor: "#464646",
             marginTop: "24rem",
             margin: "1rem",
           }}
@@ -149,7 +149,7 @@ function Mic({ setNoteArray }) {
             padding: "1rem",
             borderRadius: "15px",
             borderStyle: "solid",
-            backgroundColor: "#6CC417",
+            backgroundColor: "#464646",
             marginTop: "24rem",
             margin: "1rem",
           }}
@@ -160,6 +160,18 @@ function Mic({ setNoteArray }) {
           <Link to="/tab">Tab It!</Link>
         </button>
       </div>
+      <footer
+        style={{
+          position: "fixed",
+          bottom: "0",
+          left: "0",
+          right: "0",
+          width: "100%",
+          height: "2rem",
+          borderTopStyle: "solid",
+          borderBlockColor: "white",
+        }}
+      ></footer>
     </div>
   );
 }

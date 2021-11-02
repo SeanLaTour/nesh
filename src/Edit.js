@@ -34,40 +34,24 @@ function Edit({ noteArray, position, setPosition }) {
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: "rgba(120, 200, 0, 0.25)",
+      backgroundColor: "rgba(0, 0, 0, 0.75)",
     },
     content: {
       display: "flex",
       justifyContent: "center",
       flexDirection: "column",
+      backgroundColor: "rgb(100, 100, 100, 0.40)",
       top: "50%",
       left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      backgroundColor: "rgba(120, 200, 255, 0.8)",
-      borderRadius: "20PX",
-      padding: "8rem",
+      borderRadius: "15px",
+      padding: "1rem",
       width: "50%",
       height: "50%",
     },
-  };
-
-  const handleButtonPositionUp = () => {
-    if (position < 4) {
-      setPosition(position + 1);
-    } else {
-      setPosition(0);
-    }
-  };
-
-  const handleButtonPositionDown = () => {
-    if (position > 0) {
-      setPosition(position - 1);
-    } else {
-      setPosition(4);
-    }
   };
 
   const handlePublish = () => {
@@ -162,22 +146,53 @@ function Edit({ noteArray, position, setPosition }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
       >
-        <label style={{ marginBottom: "1rem" }}>
-          Current fret position: {currentNote.note}
-        </label>
-        <input
-          onChange={(e) => setFretInput(e.target.value)}
-          style={{ marginBottom: "1rem" }}
-        ></input>
-        <button
-          onClick={handleSubmitEditButton}
-          style={{ marginBottom: "1rem" }}
+        <div
+          style={{ width: "100%", display: "flex", flexDirection: "column" }}
         >
-          Change
-        </button>
-        <button style={{ marginBottom: "1rem" }} onClick={closeModal}>
-          Quit
-        </button>
+          <label
+            style={{ marginBottom: "1rem", width: "100%", color: "lightgrey" }}
+          >
+            Current fret position:{" "}
+            <b style={{ marginLeft: "31%" }}>( {currentNote.note} )</b>
+          </label>
+          <input
+            type="number"
+            onChange={(e) => setFretInput(e.target.value)}
+            style={{
+              marginBottom: "1rem",
+              width: "96%",
+              borderRadius: "5px",
+              padding: "0.5rem",
+              borderStyle: "none",
+            }}
+          ></input>
+        </div>
+        <div>
+          <button
+            onClick={handleSubmitEditButton}
+            style={{
+              marginBottom: "1rem",
+              width: "50%",
+              borderRadius: "5px 0 0 5px",
+              borderStyle: "none",
+              padding: "0.5rem",
+            }}
+          >
+            Change
+          </button>
+          <button
+            style={{
+              marginBottom: "1rem",
+              width: "50%",
+              borderRadius: "0 5px 5px 0",
+              borderStyle: "none",
+              padding: "0.5rem",
+            }}
+            onClick={closeModal}
+          >
+            Quit
+          </button>
+        </div>
       </Modal>
       <div
         style={{
@@ -185,7 +200,7 @@ function Edit({ noteArray, position, setPosition }) {
           margin: "2rem",
           borderStyle: "solid",
           borderRadius: "10px",
-          borderColor: "#6CC417",
+          borderColor: "#464646",
         }}
       >
         <div style={{ textAlign: "left" }}>
@@ -196,7 +211,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              color: "#6CC417",
+              borderColor: "#464646",
             }}
           >
             {e2String}
@@ -208,7 +223,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              color: "#6CC417",
+              borderColor: "#464646",
             }}
           >
             {bString}
@@ -220,7 +235,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              color: "#6CC417",
+              borderColor: "#464646",
             }}
           >
             {gString}
@@ -232,7 +247,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              color: "#6CC417",
+              borderColor: "#464646",
             }}
           >
             {dString}
@@ -244,7 +259,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              color: "#6CC417",
+              borderColor: "#464646",
             }}
           >
             {aString}
@@ -255,7 +270,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderStyle: "solid",
               listStyleType: "none",
               marginRight: "2.5rem",
-              color: "#6CC417",
+              borderColor: "#464646",
             }}
           >
             {eString}

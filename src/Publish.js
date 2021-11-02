@@ -18,7 +18,7 @@ function Publish() {
         margin: "2rem",
         borderStyle: "solid",
         borderRadius: "10px",
-        borderColor: "#6CC417",
+        borderColor: "#464646",
       }}
     >
       <div style={{ textAlign: "left" }}>
@@ -28,10 +28,13 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderRadius: "3px 3px 0 0",
+            borderBottomStyle: "none",
+            color: "white",
           }}
         >
-          {e2String.join("")}
+          e |{e2String.join("")}
         </div>
         <div
           style={{
@@ -39,10 +42,12 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderBottomStyle: "none",
+            color: "white",
           }}
         >
-          {bString.join("")}
+          b |{bString.join("")}
         </div>
         <div
           style={{
@@ -50,10 +55,12 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderBottomStyle: "none",
+            color: "white",
           }}
         >
-          {gString.join("")}
+          g |{gString.join("")}
         </div>
         <div
           style={{
@@ -61,11 +68,40 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderBottomStyle: "none",
+            color: "white",
           }}
         >
-          {dString.join("")}
+          d |{dString.join("")}
         </div>
+        <div
+          style={{
+            textOverflow: "clip",
+            borderStyle: "solid",
+            listStyleType: "none",
+            marginRight: "2.5rem",
+            borderColor: "#464646",
+            borderBottomStyle: "none",
+            color: "white",
+          }}
+        >
+          a |{aString.join("")}
+        </div>
+        <div
+          style={{
+            textOverflow: "clip",
+            borderStyle: "solid",
+            listStyleType: "none",
+            marginRight: "2.5rem",
+            borderColor: "#464646",
+            borderRadius: "0 0 3px 3px",
+            color: "white",
+          }}
+        >
+          e |{eString.join("")}
+        </div>
+
         <footer
           style={{
             position: "fixed",

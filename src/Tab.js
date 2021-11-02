@@ -35,7 +35,7 @@ function Tab({ noteArray, position, setPosition }) {
         margin: "2rem",
         borderStyle: "solid",
         borderRadius: "10px",
-        borderColor: "#6CC417",
+        borderColor: "#464646",
       }}
     >
       <div style={{ textAlign: "left" }}>
@@ -45,10 +45,13 @@ function Tab({ noteArray, position, setPosition }) {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderRadius: "3px 3px 0 0",
+            borderBottomStyle: "none",
+            color: "white",
           }}
         >
-          {e2String.join("")}
+          e |{e2String.join("")}
         </div>
         <div
           style={{
@@ -56,10 +59,12 @@ function Tab({ noteArray, position, setPosition }) {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderBottomStyle: "none",
+            color: "white",
           }}
         >
-          {bString.join("")}
+          b |{bString.join("")}
         </div>
         <div
           style={{
@@ -67,10 +72,12 @@ function Tab({ noteArray, position, setPosition }) {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderBottomStyle: "none",
+            color: "white",
           }}
         >
-          {gString.join("")}
+          g |{gString.join("")}
         </div>
         <div
           style={{
@@ -78,10 +85,12 @@ function Tab({ noteArray, position, setPosition }) {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderBottomStyle: "none",
+            color: "white",
           }}
         >
-          {dString.join("")}
+          d |{dString.join("")}
         </div>
         <div
           style={{
@@ -89,10 +98,12 @@ function Tab({ noteArray, position, setPosition }) {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderBottomStyle: "none",
+            color: "white",
           }}
         >
-          {aString.join("")}
+          a |{aString.join("")}
         </div>
         <div
           style={{
@@ -100,23 +111,51 @@ function Tab({ noteArray, position, setPosition }) {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            color: "#6CC417",
+            borderColor: "#464646",
+            borderRadius: "0 0 3px 3px",
+            color: "white",
           }}
         >
-          {eString.join("")}
+          e |{eString.join("")}
         </div>
+
+        <footer
+          style={{
+            position: "fixed",
+            bottom: "0",
+            left: "0",
+            right: "0",
+            width: "100%",
+          }}
+        >
+          <Link to="/">
+            <button
+              style={{
+                width: "50%",
+                height: "3rem",
+                backgroundColor: "#171717",
+                color: "#DFDFDF",
+              }}
+            >
+              Record Again
+            </button>
+          </Link>
+          <Link to="/edit">
+            <button
+              style={{
+                width: "50%",
+                height: "3rem",
+                backgroundColor: "#171717",
+                color: "#DFDFDF",
+              }}
+            >
+              Edit
+            </button>
+          </Link>
+        </footer>
       </div>
       <div>
-        <div
-          style={{
-            paddingTop: "2rem",
-            paddingLeft: "12rem",
-            paddingRight: "12rem",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        ></div>
-        <h2 style={{ color: "green" }}>Position: {position + 1}</h2>
+        <h2 style={{ color: "#575757" }}>Position: {position + 1}</h2>
       </div>
       <footer
         style={{

@@ -24,12 +24,9 @@ button {
   font-family: monospace;
 }
 
-p {
-  color: "green";
-}
-
 a {
   text-decoration: none;
+  color: black;
 }
 
 .App-header {
