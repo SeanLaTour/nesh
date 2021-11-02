@@ -92,8 +92,8 @@ function Mic({ setNoteArray }) {
       </p>
       <div
         style={{
-          margin: "8rem",
-          padding: "8rem",
+          margin: "2rem",
+          padding: "2rem",
           borderStyle: "solid",
           borderColor: "#6CC417",
           borderRadius: "15px",
@@ -143,21 +143,6 @@ function Mic({ setNoteArray }) {
           }}
         >
           Listen
-        </button>
-        <button
-          style={{
-            padding: "1rem",
-            borderRadius: "15px",
-            borderStyle: "solid",
-            backgroundColor: "#6CC417",
-            marginTop: "24rem",
-            margin: "1rem",
-          }}
-          onClick={() => {
-            setNoteArray(noteArray);
-          }}
-        >
-          <Link to="/edit">Edit</Link>
         </button>
         <button
           style={{

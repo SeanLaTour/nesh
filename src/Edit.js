@@ -179,11 +179,10 @@ function Edit({ noteArray, position, setPosition }) {
           Quit
         </button>
       </Modal>
-      <h1 color="green">Edit</h1>
       <div
         style={{
-          padding: "4rem",
-          margin: "8rem",
+          padding: "2rem",
+          margin: "2rem",
           borderStyle: "solid",
           borderRadius: "10px",
           borderColor: "#6CC417",
@@ -194,6 +193,7 @@ function Edit({ noteArray, position, setPosition }) {
             style={{
               textOverflow: "clip",
               borderStyle: "solid",
+              borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
               color: "#6CC417",
@@ -205,6 +205,7 @@ function Edit({ noteArray, position, setPosition }) {
             style={{
               textOverflow: "clip",
               borderStyle: "solid",
+              borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
               color: "#6CC417",
@@ -216,6 +217,7 @@ function Edit({ noteArray, position, setPosition }) {
             style={{
               textOverflow: "clip",
               borderStyle: "solid",
+              borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
               color: "#6CC417",
@@ -227,6 +229,7 @@ function Edit({ noteArray, position, setPosition }) {
             style={{
               textOverflow: "clip",
               borderStyle: "solid",
+              borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
               color: "#6CC417",
@@ -238,6 +241,7 @@ function Edit({ noteArray, position, setPosition }) {
             style={{
               textOverflow: "clip",
               borderStyle: "solid",
+              borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
               color: "#6CC417",
@@ -258,68 +262,43 @@ function Edit({ noteArray, position, setPosition }) {
           </div>
         </div>
         <div>
-          <div
+          <footer
             style={{
-              paddingTop: "2rem",
-              paddingLeft: "12rem",
-              paddingRight: "12rem",
-              display: "flex",
-              justifyContent: "space-between",
+              position: "fixed",
+              bottom: "0",
+              left: "0",
+              right: "0",
+              width: "100%",
             }}
           >
             <Link to="/">
               <button
                 style={{
-                  borderStyle: "solid",
-                  padding: "1rem",
-                  borderRadius: "15px",
-                  borderStyle: "solid",
-                  backgroundColor: "#6CC417",
+                  width: "50%",
+                  height: "3rem",
+                  backgroundColor: "#171717",
+                  color: "#DFDFDF",
                 }}
               >
                 Record Again
               </button>
             </Link>
-            <button
-              style={{
-                borderStyle: "solid",
-                padding: "1rem",
-                borderRadius: "15px",
-                borderStyle: "solid",
-                backgroundColor: "#6CC417",
-              }}
-              onClick={handleButtonPositionUp}
-            >
-              Position +
-            </button>
-            <button
-              style={{
-                borderStyle: "solid",
-                padding: "1rem",
-                borderRadius: "15px",
-                borderStyle: "solid",
-                backgroundColor: "#6CC417",
-              }}
-              onClick={handleButtonPositionDown}
-            >
-              Position -
-            </button>
-            <Link to="/publish">
-              <button
-                onClick={handlePublish}
-                style={{
-                  borderStyle: "solid",
-                  padding: "1rem",
-                  borderRadius: "15px",
-                  borderStyle: "solid",
-                  backgroundColor: "#6CC417",
-                }}
-              >
-                Publish
-              </button>
+            <Link to="/edit">
+              <Link to="/publish">
+                <button
+                  onClick={handlePublish}
+                  style={{
+                    width: "50%",
+                    height: "3rem",
+                    backgroundColor: "#171717",
+                    color: "#DFDFDF",
+                  }}
+                >
+                  Publish
+                </button>
+              </Link>
             </Link>
-          </div>
-          <h2 style={{ color: "green" }}>Position: {position + 1}</h2>
+          </footer>
         </div>
       </div>
     </div>

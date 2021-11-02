@@ -14,8 +14,8 @@ function Publish() {
   return (
     <div
       style={{
-        padding: "4rem",
-        margin: "8rem",
+        padding: "2rem",
+        margin: "2rem",
         borderStyle: "solid",
         borderRadius: "10px",
         borderColor: "#6CC417",
@@ -66,65 +66,40 @@ function Publish() {
         >
           {dString.join("")}
         </div>
-        <div
+        <footer
           style={{
-            textOverflow: "clip",
-            borderStyle: "solid",
-            listStyleType: "none",
-            marginRight: "2.5rem",
-            color: "#6CC417",
-          }}
-        >
-          {aString.join("")}
-        </div>
-        <div
-          style={{
-            textOverflow: "clip",
-            borderStyle: "solid",
-            listStyleType: "none",
-            marginRight: "2.5rem",
-            color: "#6CC417",
-          }}
-        >
-          {eString.join("")}
-        </div>
-      </div>
-      <div>
-        <div
-          style={{
-            paddingTop: "2rem",
-            paddingLeft: "12rem",
-            paddingRight: "12rem",
-            display: "flex",
-            justifyContent: "space-between",
+            position: "fixed",
+            bottom: "0",
+            left: "0",
+            right: "0",
+            width: "100%",
           }}
         >
           <Link to="/">
             <button
               style={{
-                borderStyle: "solid",
-                padding: "1rem",
-                borderRadius: "15px",
-                borderStyle: "solid",
-                backgroundColor: "#6CC417",
+                width: "50%",
+                height: "3rem",
+                backgroundColor: "#171717",
+                color: "#DFDFDF",
               }}
             >
               Record Again
             </button>
           </Link>
-          <button
-            style={{
-              padding: "1rem",
-              borderRadius: "15px",
-              borderStyle: "solid",
-              backgroundColor: "#6CC417",
-              marginTop: "24rem",
-              margin: "1rem",
-            }}
-          >
-            <Link to="/edit">Edit</Link>
-          </button>
-        </div>
+          <Link to="/edit">
+            <button
+              style={{
+                width: "50%",
+                height: "3rem",
+                backgroundColor: "#171717",
+                color: "#DFDFDF",
+              }}
+            >
+              Edit
+            </button>
+          </Link>
+        </footer>
       </div>
     </div>
   );

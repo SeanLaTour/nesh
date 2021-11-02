@@ -31,8 +31,8 @@ function Tab({ noteArray, position, setPosition }) {
   return (
     <div
       style={{
-        padding: "4rem",
-        margin: "8rem",
+        padding: "2rem",
+        margin: "2rem",
         borderStyle: "solid",
         borderRadius: "10px",
         borderColor: "#6CC417",
@@ -115,59 +115,65 @@ function Tab({ noteArray, position, setPosition }) {
             display: "flex",
             justifyContent: "space-between",
           }}
-        >
-          <Link to="/">
-            <button
-              style={{
-                borderStyle: "solid",
-                padding: "1rem",
-                borderRadius: "15px",
-                borderStyle: "solid",
-                backgroundColor: "#6CC417",
-              }}
-            >
-              Record Again
-            </button>
-          </Link>
-          <button
-            style={{
-              borderStyle: "solid",
-              padding: "1rem",
-              borderRadius: "15px",
-              borderStyle: "solid",
-              backgroundColor: "#6CC417",
-            }}
-            onClick={handleButtonPositionUp}
-          >
-            Position +
-          </button>
-          <button
-            style={{
-              borderStyle: "solid",
-              padding: "1rem",
-              borderRadius: "15px",
-              borderStyle: "solid",
-              backgroundColor: "#6CC417",
-            }}
-            onClick={handleButtonPositionDown}
-          >
-            Position -
-          </button>
-          <button
-            style={{
-              padding: "1rem",
-              borderRadius: "15px",
-              borderStyle: "solid",
-              backgroundColor: "#6CC417",
-              marginTop: "24rem",
-              margin: "1rem",
-            }}
-          >
-            <Link to="/edit">Edit</Link>
-          </button>
-        </div>
+        ></div>
         <h2 style={{ color: "green" }}>Position: {position + 1}</h2>
       </div>
+      <footer
+        style={{
+          position: "fixed",
+          bottom: "0",
+          left: "0",
+          right: "0",
+          width: "100%",
+        }}
+      >
+        <Link to="/">
+          <button
+            style={{
+              width: "25%",
+              height: "3rem",
+              backgroundColor: "#171717",
+              color: "#DFDFDF",
+            }}
+          >
+            Record Again
+          </button>
+        </Link>
+        <button
+          style={{
+            width: "25%",
+            height: "3rem",
+            backgroundColor: "#171717",
+            color: "#DFDFDF",
+          }}
+          onClick={handleButtonPositionUp}
+        >
+          Position +
+        </button>
+        <button
+          style={{
+            width: "25%",
+            height: "3rem",
+            backgroundColor: "#171717",
+            color: "#DFDFDF",
+          }}
+          onClick={handleButtonPositionDown}
+        >
+          Position -
+        </button>
+        <Link to="/edit">
+          <button
+            style={{
+              width: "25%",
+              height: "3rem",
+              backgroundColor: "#171717",
+              color: "#DFDFDF",
+            }}
+          >
+            Edit
+          </button>
+        </Link>
+      </footer>
     </div>
   );
 }
