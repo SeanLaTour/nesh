@@ -16,9 +16,9 @@ function Publish() {
       style={{
         padding: "2rem",
         margin: "2rem",
-        borderStyle: "solid",
-        borderRadius: "10px",
-        borderColor: "#464646",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
       }}
     >
       <div style={{ textAlign: "left" }}>
@@ -28,10 +28,10 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            borderColor: "#464646",
+            borderColor: "#FBB03B",
             borderRadius: "3px 3px 0 0",
             borderBottomStyle: "none",
-            color: "white",
+            color: "#FBB03B",
           }}
         >
           e |{e2String.join("")}
@@ -42,9 +42,9 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            borderColor: "#464646",
+            borderColor: "#FBB03B",
             borderBottomStyle: "none",
-            color: "white",
+            color: "#FBB03B",
           }}
         >
           b |{bString.join("")}
@@ -55,9 +55,9 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            borderColor: "#464646",
+            borderColor: "#FBB03B",
             borderBottomStyle: "none",
-            color: "white",
+            color: "#FBB03B",
           }}
         >
           g |{gString.join("")}
@@ -68,9 +68,9 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            borderColor: "#464646",
+            borderColor: "#FBB03B",
             borderBottomStyle: "none",
-            color: "white",
+            color: "#FBB03B",
           }}
         >
           d |{dString.join("")}
@@ -81,9 +81,9 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            borderColor: "#464646",
+            borderColor: "#FBB03B",
             borderBottomStyle: "none",
-            color: "white",
+            color: "#FBB03B",
           }}
         >
           a |{aString.join("")}
@@ -94,9 +94,9 @@ function Publish() {
             borderStyle: "solid",
             listStyleType: "none",
             marginRight: "2.5rem",
-            borderColor: "#464646",
+            borderColor: "#FBB03B",
             borderRadius: "0 0 3px 3px",
-            color: "white",
+            color: "#FBB03B",
           }}
         >
           e |{eString.join("")}
@@ -118,6 +118,7 @@ function Publish() {
                 height: "3rem",
                 backgroundColor: "#171717",
                 color: "#DFDFDF",
+                borderColor: "#FBB03B",
               }}
             >
               Record Again
@@ -130,6 +131,7 @@ function Publish() {
                 height: "3rem",
                 backgroundColor: "#171717",
                 color: "#DFDFDF",
+                borderColor: "#FBB03B",
               }}
             >
               Edit

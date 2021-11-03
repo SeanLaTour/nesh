@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import Wad from "web-audio-daw";
+import logo from "./images/logo-search-grid-desktop.png";
 
 function Mic({ setNoteArray }) {
   window.localStorage.setItem("tabObj", null);
@@ -85,28 +86,33 @@ function Mic({ setNoteArray }) {
 
   return (
     <div>
-      <h1 style={{ color: "#686868" }}>Nesh</h1>
-      <p style={{ color: "#686868" }}>
-        Remember your licks, write your songs, tune your guitar and much, much
-        more!
-      </p>
       <div
         style={{
           margin: "2rem",
           padding: "2rem",
           borderStyle: "solid",
-          borderColor: "#464646",
+          borderColor: "#082139",
           borderRadius: "15px",
+        }}
+      >
+        <img src={logo} />
+      </div>
+      <footer
+        style={{
+          position: "fixed",
+          bottom: "0",
+          left: "0",
+          right: "0",
+          width: "100%",
         }}
       >
         <button
           style={{
-            padding: "1rem",
-            borderRadius: "15px",
-            borderStyle: "solid",
-            backgroundColor: "#464646",
-            marginTop: "24rem",
-            margin: "1rem",
+            width: "25%",
+            height: "3rem",
+            backgroundColor: "#171717",
+            color: "#DFDFDF",
+            borderColor: "#FBB03B",
           }}
           onClick={() => {
             record();
@@ -116,12 +122,11 @@ function Mic({ setNoteArray }) {
         </button>
         <button
           style={{
-            padding: "1rem",
-            borderRadius: "15px",
-            borderStyle: "solid",
-            backgroundColor: "#464646",
-            marginTop: "24rem",
-            margin: "1rem",
+            width: "25%",
+            height: "3rem",
+            backgroundColor: "#171717",
+            color: "#DFDFDF",
+            borderColor: "#FBB03B",
           }}
           onClick={() => {
             recordOff();
@@ -131,12 +136,11 @@ function Mic({ setNoteArray }) {
         </button>
         <button
           style={{
-            padding: "1rem",
-            borderRadius: "15px",
-            borderStyle: "solid",
-            backgroundColor: "#464646",
-            marginTop: "24rem",
-            margin: "1rem",
+            width: "25%",
+            height: "3rem",
+            backgroundColor: "#171717",
+            color: "#DFDFDF",
+            borderColor: "#FBB03B",
           }}
           onClick={() => {
             check();
@@ -146,12 +150,11 @@ function Mic({ setNoteArray }) {
         </button>
         <button
           style={{
-            padding: "1rem",
-            borderRadius: "15px",
-            borderStyle: "solid",
-            backgroundColor: "#464646",
-            marginTop: "24rem",
-            margin: "1rem",
+            width: "25%",
+            height: "3rem",
+            backgroundColor: "#171717",
+            color: "#DFDFDF",
+            borderColor: "#FBB03B",
           }}
           onClick={() => {
             setNoteArray(noteArray);
@@ -159,19 +162,7 @@ function Mic({ setNoteArray }) {
         >
           <Link to="/tab">Tab It!</Link>
         </button>
-      </div>
-      <footer
-        style={{
-          position: "fixed",
-          bottom: "0",
-          left: "0",
-          right: "0",
-          width: "100%",
-          height: "2rem",
-          borderTopStyle: "solid",
-          borderBlockColor: "white",
-        }}
-      ></footer>
+      </footer>
     </div>
   );
 }

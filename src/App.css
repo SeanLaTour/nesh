@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #082139;
 }
 
 .modal {
@@ -26,11 +27,11 @@ button {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #dfdfdf;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #082139;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

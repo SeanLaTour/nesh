@@ -198,9 +198,9 @@ function Edit({ noteArray, position, setPosition }) {
         style={{
           padding: "2rem",
           margin: "2rem",
-          borderStyle: "solid",
-          borderRadius: "10px",
-          borderColor: "#464646",
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
         }}
       >
         <div style={{ textAlign: "left" }}>
@@ -211,7 +211,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              borderColor: "#464646",
+              borderColor: "#FBB03B",
             }}
           >
             {e2String}
@@ -223,7 +223,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              borderColor: "#464646",
+              borderColor: "#FBB03B",
             }}
           >
             {bString}
@@ -235,7 +235,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              borderColor: "#464646",
+              borderColor: "#FBB03B",
             }}
           >
             {gString}
@@ -247,7 +247,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              borderColor: "#464646",
+              borderColor: "#FBB03B",
             }}
           >
             {dString}
@@ -259,7 +259,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderBottomStyle: "none",
               listStyleType: "none",
               marginRight: "2.5rem",
-              borderColor: "#464646",
+              borderColor: "#FBB03B",
             }}
           >
             {aString}
@@ -270,7 +270,7 @@ function Edit({ noteArray, position, setPosition }) {
               borderStyle: "solid",
               listStyleType: "none",
               marginRight: "2.5rem",
-              borderColor: "#464646",
+              borderColor: "#FBB03B",
             }}
           >
             {eString}
@@ -293,6 +293,7 @@ function Edit({ noteArray, position, setPosition }) {
                   height: "3rem",
                   backgroundColor: "#171717",
                   color: "#DFDFDF",
+                  borderColor: "#FBB03B",
                 }}
               >
                 Record Again
@@ -307,6 +308,7 @@ function Edit({ noteArray, position, setPosition }) {
                     height: "3rem",
                     backgroundColor: "#171717",
                     color: "#DFDFDF",
+                    borderColor: "#FBB03B",
                   }}
                 >
                   Publish

@@ -455,7 +455,7 @@ export const generateTabObjForEdit = (noteArray, position, buttonFunction) => {
               style={{
                 width: "2rem",
                 backgroundColor: "rgb(0,0,0,0)",
-                color: "white",
+                color: "#FBB03B",
                 padding: ".5rem",
                 border: "0",
                 background: "none",
@@ -477,7 +477,7 @@ export const generateTabObjForEdit = (noteArray, position, buttonFunction) => {
               style={{
                 width: "2rem",
                 backgroundColor: "rgb(0,0,0,0)",
-                color: "#464646",
+                color: "#F69453",
                 padding: ".5rem",
                 border: "0",
                 background: "none",
@@ -519,7 +519,7 @@ export const generateTabObjFromPrevious = (previousTabObj, buttonFunction) => {
             style={{
               width: "2rem",
               backgroundColor: "rgb(0,0,0,0)",
-              color: "white",
+              color: "#FBB03B",
               padding: ".5rem",
               border: "0",
               background: "none",
@@ -540,7 +540,7 @@ export const generateTabObjFromPrevious = (previousTabObj, buttonFunction) => {
             style={{
               width: "2rem",
               backgroundColor: "rgb(0,0,0,0)",
-              color: "#464646",
+              color: "#F69453",
               padding: ".5rem",
               border: "0",
               background: "none",
