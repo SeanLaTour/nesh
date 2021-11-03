@@ -88,6 +88,7 @@ function Mic({ setNoteArray }) {
     <div>
       <div
         style={{
+          marginTop: "1rem",
           margin: "2rem",
           padding: "2rem",
           borderStyle: "solid",
@@ -96,6 +97,9 @@ function Mic({ setNoteArray }) {
         }}
       >
         <img src={logo} />
+        <p style={{ marginTop: "-2rem", color: "#FBB03B" }}>
+          Don't forget your licks.
+        </p>
       </div>
       <footer
         style={{

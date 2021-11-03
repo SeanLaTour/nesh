@@ -155,7 +155,7 @@ function Tab({ noteArray, position, setPosition }) {
         </footer>
       </div>
       <div>
-        <h2 style={{ color: "#FBB03B" }}>Position: {position + 1}</h2>
+        <p style={{ color: "#FBB03B" }}>Position: {position + 1}</p>
       </div>
       <footer
         style={{
