@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo-search-grid-desktop.png";
 
-function MicFooter({ setNoteArray, noteArray, record, recordOff, check }) {
+function MicContainer({ setNoteArray, noteArray, record, recordOff, check }) {
   const [audioWave, setAudioWave] = useState(false);
+  const [disable, setDisable] = useState(false);
   return (
     <div>
       <div
         style={{
           marginTop: "0rem",
+          paddingTopa: "1rem",
           margin: "2rem",
           padding: "2rem",
         }}
       >
-        <img src={logo} />
+        <img style={{ width: "50%" }} src={logo} />
         {audioWave ? (
           <div style={{ marginTop: "-2rem", color: "#FBB03B" }} class="loader">
             <svg
@@ -86,6 +88,7 @@ function MicFooter({ setNoteArray, noteArray, record, recordOff, check }) {
         }}
       >
         <button
+          disabled={disable ? true : false}
           style={{
             width: "25%",
             height: "3rem",
@@ -96,11 +99,13 @@ function MicFooter({ setNoteArray, noteArray, record, recordOff, check }) {
           onClick={() => {
             record();
             setAudioWave(true);
+            setDisable(true);
           }}
         >
           Record
         </button>
         <button
+          disabled={disable ? false : true}
           style={{
             width: "25%",
             height: "3rem",
@@ -111,6 +116,7 @@ function MicFooter({ setNoteArray, noteArray, record, recordOff, check }) {
           onClick={() => {
             recordOff();
             setAudioWave(false);
+            setDisable(false);
           }}
         >
           Stop
@@ -129,23 +135,25 @@ function MicFooter({ setNoteArray, noteArray, record, recordOff, check }) {
         >
           Listen
         </button>
-        <button
-          style={{
-            width: "25%",
-            height: "3rem",
-            backgroundColor: "#171717",
-            color: "#DFDFDF",
-            borderColor: "#FBB03B",
-          }}
-          onClick={() => {
-            setNoteArray(noteArray);
-          }}
-        >
-          <Link to="/tab">Tab It!</Link>
-        </button>
+        <Link to="/tab">
+          <button
+            style={{
+              width: "25%",
+              height: "3rem",
+              backgroundColor: "#171717",
+              color: "#DFDFDF",
+              borderColor: "#FBB03B",
+            }}
+            onClick={() => {
+              setNoteArray(noteArray);
+            }}
+          >
+            Tab It!
+          </button>
+        </Link>
       </footer>
     </div>
   );
 }
 
-export default MicFooter;
+export default MicContainer;

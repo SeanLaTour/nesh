@@ -1,5 +1,5 @@
 import React from "react";
-import MicFooter from "./components/MicFooter";
+import MicContainer from "./components/MicContainer";
 import Wad from "web-audio-daw";
 
 function Mic({ setNoteArray }) {
@@ -83,7 +83,7 @@ function Mic({ setNoteArray }) {
 
   return (
     <div>
-      <MicFooter
+      <MicContainer
         setNoteArray={setNoteArray}
         noteArray={noteArray}
         record={record}
