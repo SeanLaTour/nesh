@@ -1,10 +1,10 @@
 import "./App.css";
-import Mic from "./Mic";
 import Tab from "./Tab";
 import { Switch, Route } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import Edit from "./Edit";
 import Publish from "./Publish";
+import MicContainer from "./MicContainer";
 
 function App() {
   const [noteArray, setNoteArray] = useState([]);
@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/" exact>
-          <Mic setNoteArray={setNoteArray} />
+          <MicContainer setNoteArray={setNoteArray} />
         </Route>
         <Route path="/tab">
           <Tab

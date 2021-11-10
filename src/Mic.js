@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+import MicFooter from "./components/MicFooter";
 import Wad from "web-audio-daw";
-import logo from "./images/logo-search-grid-desktop.png";
 
 function Mic({ setNoteArray }) {
   window.localStorage.setItem("tabObj", null);
@@ -39,7 +37,6 @@ function Mic({ setNoteArray }) {
   // These variables assist with the functions below.
   let reqAnim;
   let count = 0;
-  let timeout = 0;
 
   // This function pushes the pitch to the noteArray to be sent to the tab component.
   const listenToPitch = (toggle) => {
@@ -81,92 +78,18 @@ function Mic({ setNoteArray }) {
   // Listen to recording.
   const check = () => {
     console.log("noteArray:", noteArray);
-    //recordings[0] && recordings[0].play();
+    recordings[0] && recordings[0].play();
   };
 
   return (
     <div>
-      <div
-        style={{
-          marginTop: "1rem",
-          margin: "2rem",
-          padding: "2rem",
-          borderStyle: "solid",
-          borderColor: "#082139",
-          borderRadius: "15px",
-        }}
-      >
-        <img src={logo} />
-        <p style={{ marginTop: "-2rem", color: "#FBB03B" }}>
-          Don't forget your licks.
-        </p>
-      </div>
-      <footer
-        style={{
-          position: "fixed",
-          bottom: "0",
-          left: "0",
-          right: "0",
-          width: "100%",
-        }}
-      >
-        <button
-          style={{
-            width: "25%",
-            height: "3rem",
-            backgroundColor: "#171717",
-            color: "#DFDFDF",
-            borderColor: "#FBB03B",
-          }}
-          onClick={() => {
-            record();
-          }}
-        >
-          Record
-        </button>
-        <button
-          style={{
-            width: "25%",
-            height: "3rem",
-            backgroundColor: "#171717",
-            color: "#DFDFDF",
-            borderColor: "#FBB03B",
-          }}
-          onClick={() => {
-            recordOff();
-          }}
-        >
-          Stop
-        </button>
-        <button
-          style={{
-            width: "25%",
-            height: "3rem",
-            backgroundColor: "#171717",
-            color: "#DFDFDF",
-            borderColor: "#FBB03B",
-          }}
-          onClick={() => {
-            check();
-          }}
-        >
-          Listen
-        </button>
-        <button
-          style={{
-            width: "25%",
-            height: "3rem",
-            backgroundColor: "#171717",
-            color: "#DFDFDF",
-            borderColor: "#FBB03B",
-          }}
-          onClick={() => {
-            setNoteArray(noteArray);
-          }}
-        >
-          <Link to="/tab">Tab It!</Link>
-        </button>
-      </footer>
+      <MicFooter
+        setNoteArray={setNoteArray}
+        noteArray={noteArray}
+        record={record}
+        recordOff={recordOff}
+        check={check}
+      />
     </div>
   );
 }
