@@ -114,3 +114,7 @@ a {
     transform-origin: 50% 50%;
   }
 }
+
+.tab-bar::-webkit-scrollbar {
+  display: none;
+}
