@@ -122,6 +122,7 @@ function MicContainer({ setNoteArray, noteArray, record, recordOff, check }) {
           Stop
         </button>
         <button
+          disabled={disable ? true : false}
           style={{
             width: "25%",
             height: "3rem",
@@ -137,6 +138,7 @@ function MicContainer({ setNoteArray, noteArray, record, recordOff, check }) {
         </button>
         <Link to="/tab">
           <button
+            disabled={disable ? true : false}
             style={{
               width: "25%",
               height: "3rem",

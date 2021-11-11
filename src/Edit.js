@@ -65,7 +65,13 @@ function Edit({ noteArray, position, setPosition }) {
     };
     Object.entries(tabObj).forEach((string) => {
       string[1].forEach((note) => {
-        tabObjForStorage[string[0]] += note.props.children;
+        let doubleDigit = "";
+        if (note.props.children.length > 1) {
+          doubleDigit = `(${note.props.children})`;
+          tabObjForStorage[string[0]] += doubleDigit;
+        } else {
+          tabObjForStorage[string[0]] += note.props.children;
+        }
       });
     });
     window.localStorage.setItem("tabObj", JSON.stringify(tabObjForStorage));
