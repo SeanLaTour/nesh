@@ -6,6 +6,8 @@ import Edit from "./Edit";
 import Publish from "./Publish";
 import MicPage from "./MicPage";
 import Header from "./components/Header";
+import CreatePDFPage from "./CreatePDF";
+import { PDFViewer } from "@react-pdf/renderer";
 
 function App() {
   const [noteArray, setNoteArray] = useState([]);
@@ -13,10 +15,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route path="/" exact>
           <MicPage setNoteArray={setNoteArray} />
+        </Route>
+        <Route path="/createPDF">
+          <PDFViewer>
+            <CreatePDFPage />
+          </PDFViewer>
         </Route>
         <Route path="/tab">
           <Tab

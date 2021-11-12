@@ -161,7 +161,7 @@ function Publish() {
             <Link to="/">
               <button
                 style={{
-                  width: "50%",
+                  width: "33.33%",
                   height: "3rem",
                   backgroundColor: "#171717",
                   color: "#DFDFDF",
@@ -174,7 +174,7 @@ function Publish() {
             <Link to="/edit">
               <button
                 style={{
-                  width: "50%",
+                  width: "33.33%",
                   height: "3rem",
                   backgroundColor: "#171717",
                   color: "#DFDFDF",
@@ -182,6 +182,19 @@ function Publish() {
                 }}
               >
                 Edit
+              </button>
+            </Link>
+            <Link to="/createPDF">
+              <button
+                style={{
+                  width: "33.33%",
+                  height: "3rem",
+                  backgroundColor: "#171717",
+                  color: "#DFDFDF",
+                  borderColor: "#FBB03B",
+                }}
+              >
+                PDF
               </button>
             </Link>
           </footer>
