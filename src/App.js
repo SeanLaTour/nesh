@@ -15,10 +15,9 @@ function App() {
 
   return (
     <div className="App">
-      
       <Switch>
         <Route path="/" exact>
-        <Header />
+          <Header />
           <MicPage setNoteArray={setNoteArray} />
         </Route>
         <Route path="/createPDF">
@@ -27,7 +26,7 @@ function App() {
           </PDFViewer>
         </Route>
         <Route path="/tab">
-        <Header />
+          <Header />
           <Tab
             position={position}
             setPosition={setPosition}
@@ -35,11 +34,11 @@ function App() {
           />
         </Route>
         <Route path="/publish">
-        <Header />
+          <Header />
           <Publish />
         </Route>
         <Route>
-        <Header />
+          <Header />
           <Edit
             position={position}
             setPosition={setPosition}

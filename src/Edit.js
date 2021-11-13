@@ -8,7 +8,7 @@ import {
 } from "./services/utils";
 import Modal from "react-modal";
 
-function Edit({ noteArray, position, setPosition }) {
+function Edit({ noteArray, position }) {
   const previousTabObj = JSON.parse(window.localStorage.getItem("tabObj"));
   console.log("prevObj", previousTabObj);
   const [eString, setEString] = useState([]);
