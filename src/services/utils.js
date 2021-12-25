@@ -511,6 +511,9 @@ export const generateTabObjFromPrevious = (previousTabObj, buttonFunction) => {
     console.log(string[1]);
     const tempString = string[1].split("");
     tempString.forEach((note, index) => {
+      if (note === "(" || note === ")") {
+        return;
+      }
       if (note === "-") {
         tabObj[string[0]].push(
           <button

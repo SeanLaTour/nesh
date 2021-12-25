@@ -12,7 +12,9 @@ import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 // TODO: Style this like the other tab-bars...
 
 function Edit({ noteArray, position }) {
-  const previousTabObj = JSON.parse(window.localStorage.getItem("tabObj"));
+  const [previousTabObj, setPreviousTabObj] = useState(
+    JSON.parse(window.localStorage.getItem("tabObj"))
+  );
   const [eString, setEString] = useState([]);
   const [aString, setAString] = useState([]);
   const [dString, setDString] = useState([]);
@@ -148,7 +150,30 @@ function Edit({ noteArray, position }) {
   }
 
   const handleAddLines = () => {
-    console.log("addlines");
+    console.log("PREV", previousTabObj);
+    const tabObjForStorage = {
+      e: "",
+      a: "",
+      d: "",
+      g: "",
+      b: "",
+      e2: "",
+    };
+    Object.entries(tabObj).forEach((string) => {
+      string[1].forEach((note) => {
+        let doubleDigit = "";
+        if (note.props.children.length > 1) {
+          doubleDigit = `(${note.props.children})`;
+          tabObjForStorage[string[0]] += doubleDigit;
+        } else {
+          tabObjForStorage[string[0]] += note.props.children;
+        }
+      });
+    });
+    Object.keys(tabObjForStorage).forEach((string) => {
+      tabObjForStorage[string] += "-";
+    });
+    setTabObj(generateTabObjFromPrevious(tabObjForStorage));
   };
 
   return (
