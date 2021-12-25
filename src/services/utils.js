@@ -514,6 +514,7 @@ export const generateTabObjFromPrevious = (previousTabObj, buttonFunction) => {
       if (note === "-") {
         tabObj[string[0]].push(
           <button
+            id={index + 100000}
             onClick={(e) => buttonFunction(e)}
             className="tab-button"
             name={string[0]}
