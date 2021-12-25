@@ -507,11 +507,42 @@ export const generateTabObjFromPrevious = (previousTabObj, buttonFunction) => {
     b: [],
     e2: [],
   };
+  let openParenthesis = false;
+  let tempDoubleDigit = "";
   Object.entries(previousTabObj).forEach((string) => {
     console.log(string[1]);
     const tempString = string[1].split("");
     tempString.forEach((note, index) => {
-      if (note === "(" || note === ")") {
+      if (note === ")") {
+        openParenthesis = false;
+        tabObj[string[0]].push(
+          <button
+            onClick={(e) => buttonFunction(e)}
+            id={index}
+            name={string[0]}
+            className="tab-button"
+            style={{
+              width: "2rem",
+              backgroundColor: "rgb(0,0,0,0)",
+              color: "#F69453",
+              padding: ".5rem",
+              border: "0",
+              background: "none",
+              boxShadow: "none",
+              borderRadius: "0px",
+            }}
+          >
+            {tempDoubleDigit}
+          </button>
+        );
+      }
+      if (openParenthesis) {
+        tempDoubleDigit += note;
+        return;
+      }
+      if (note === "(") {
+        openParenthesis = true;
+        tempDoubleDigit = "";
         return;
       }
       if (note === "-") {

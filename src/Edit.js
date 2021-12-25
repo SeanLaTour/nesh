@@ -173,7 +173,7 @@ function Edit({ noteArray, position }) {
     Object.keys(tabObjForStorage).forEach((string) => {
       tabObjForStorage[string] += "-";
     });
-    setTabObj(generateTabObjFromPrevious(tabObjForStorage));
+    setTabObj(generateTabObjFromPrevious(tabObjForStorage, openModal));
   };
 
   return (
