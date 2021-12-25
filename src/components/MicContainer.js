@@ -121,21 +121,23 @@ function MicContainer({ setNoteArray, noteArray, record, recordOff, check }) {
         >
           Stop
         </button>
-        <button
-          disabled={disable ? true : false}
-          style={{
-            width: "25%",
-            height: "3rem",
-            backgroundColor: "#171717",
-            color: "#DFDFDF",
-            borderColor: "#FBB03B",
-          }}
-          onClick={() => {
-            check();
-          }}
-        >
-          Listen
-        </button>
+        <Link to="/edit">
+          <button
+            disabled={disable ? true : false}
+            style={{
+              width: "25%",
+              height: "3rem",
+              backgroundColor: "#171717",
+              color: "#DFDFDF",
+              borderColor: "#FBB03B",
+            }}
+            onClick={() => {
+              check();
+            }}
+          >
+            Raw Tab
+          </button>
+        </Link>
         <Link to="/tab">
           <button
             disabled={disable ? true : false}

@@ -7,6 +7,7 @@ import {
   generateTabObjFromPrevious,
 } from "./services/utils";
 import Modal from "react-modal";
+import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 
 // TODO: Style this like the other tab-bars...
 
@@ -85,10 +86,9 @@ function Edit({ noteArray, position }) {
     setGString(tabifyForEdit(tabObj.g));
     setBString(tabifyForEdit(tabObj.b));
     setE2String(tabifyForEdit(tabObj.e2));
-  }, [toggle]);
+  }, [toggle, tabObj]);
 
   function openModal(e) {
-    console.log("HERE", e.target.id);
     setCurrentNote({
       note: e.target.innerHTML,
       position: e.target.id,
@@ -147,6 +147,10 @@ function Edit({ noteArray, position }) {
     setToggle(!toggle);
   }
 
+  const handleAddLines = () => {
+    console.log("addlines");
+  };
+
   return (
     <div>
       <Modal
@@ -202,117 +206,172 @@ function Edit({ noteArray, position }) {
           </button>
         </div>
       </Modal>
-      <div
-        style={{
-          padding: "2rem",
-          margin: "2rem",
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-      >
-        <div style={{ textAlign: "left" }}>
-          <div
-            style={{
-              textOverflow: "clip",
-              borderStyle: "solid",
-              borderBottomStyle: "none",
-              listStyleType: "none",
-              marginRight: "2.5rem",
-              borderColor: "#FBB03B",
-            }}
-          >
-            {e2String}
-          </div>
-          <div
-            style={{
-              textOverflow: "clip",
-              borderStyle: "solid",
-              borderBottomStyle: "none",
-              listStyleType: "none",
-              marginRight: "2.5rem",
-              borderColor: "#FBB03B",
-            }}
-          >
-            {bString}
-          </div>
-          <div
-            style={{
-              textOverflow: "clip",
-              borderStyle: "solid",
-              borderBottomStyle: "none",
-              listStyleType: "none",
-              marginRight: "2.5rem",
-              borderColor: "#FBB03B",
-            }}
-          >
-            {gString}
-          </div>
-          <div
-            style={{
-              textOverflow: "clip",
-              borderStyle: "solid",
-              borderBottomStyle: "none",
-              listStyleType: "none",
-              marginRight: "2.5rem",
-              borderColor: "#FBB03B",
-            }}
-          >
-            {dString}
-          </div>
-          <div
-            style={{
-              textOverflow: "clip",
-              borderStyle: "solid",
-              borderBottomStyle: "none",
-              listStyleType: "none",
-              marginRight: "2.5rem",
-              borderColor: "#FBB03B",
-            }}
-          >
-            {aString}
-          </div>
-          <div
-            style={{
-              textOverflow: "clip",
-              borderStyle: "solid",
-              listStyleType: "none",
-              marginRight: "2.5rem",
-              borderColor: "#FBB03B",
-            }}
-          >
-            {eString}
-          </div>
-        </div>
-        <div>
-          <footer
-            style={{
-              position: "fixed",
-              bottom: "0",
-              left: "0",
-              right: "0",
-              width: "100%",
-            }}
-          >
-            <Link to="/">
-              <button
+      <ScrollSync>
+        <div
+          style={{
+            padding: "2rem",
+            margin: "2rem",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
+        >
+          <div style={{ textAlign: "left" }}>
+            <ScrollSyncPane>
+              <div
+                className="tab-bar"
                 style={{
-                  width: "50%",
-                  height: "3rem",
-                  backgroundColor: "#171717",
-                  color: "#DFDFDF",
+                  height: "2rem",
+                  width: "95%",
+                  overflowX: "auto",
+                  overflowY: "hidden",
+                  scrollbarWidth: "none",
+                  whiteSpace: "nowrap",
+                  borderStyle: "solid",
+                  listStyleType: "none",
+                  marginRight: "2.5rem",
                   borderColor: "#FBB03B",
+                  borderBottomStyle: "none",
+                  color: "#FBB03B",
                 }}
               >
-                Record Again
-              </button>
-            </Link>
-            <Link to="/edit">
+                {e2String}
+              </div>
+            </ScrollSyncPane>
+            <ScrollSyncPane>
+              <div
+                className="tab-bar"
+                style={{
+                  height: "2rem",
+                  width: "95%",
+                  overflowX: "auto",
+                  overflowY: "hidden",
+                  scrollbarWidth: "none",
+                  whiteSpace: "nowrap",
+                  borderStyle: "solid",
+                  listStyleType: "none",
+                  marginRight: "2.5rem",
+                  borderColor: "#FBB03B",
+                  borderBottomStyle: "none",
+                  color: "#FBB03B",
+                }}
+              >
+                {bString}
+              </div>
+            </ScrollSyncPane>
+            <ScrollSyncPane>
+              <div
+                className="tab-bar"
+                style={{
+                  height: "2rem",
+                  width: "95%",
+                  overflowX: "auto",
+                  overflowY: "hidden",
+                  scrollbarWidth: "none",
+                  whiteSpace: "nowrap",
+                  borderStyle: "solid",
+                  listStyleType: "none",
+                  marginRight: "2.5rem",
+                  borderColor: "#FBB03B",
+                  borderBottomStyle: "none",
+                  color: "#FBB03B",
+                }}
+              >
+                {gString}
+              </div>
+            </ScrollSyncPane>
+            <ScrollSyncPane>
+              <div
+                className="tab-bar"
+                style={{
+                  height: "2rem",
+                  width: "95%",
+                  overflowX: "auto",
+                  overflowY: "hidden",
+                  scrollbarWidth: "none",
+                  whiteSpace: "nowrap",
+                  borderStyle: "solid",
+                  listStyleType: "none",
+                  marginRight: "2.5rem",
+                  borderColor: "#FBB03B",
+                  borderBottomStyle: "none",
+                  color: "#FBB03B",
+                }}
+              >
+                {dString}
+              </div>
+            </ScrollSyncPane>
+            <ScrollSyncPane>
+              <div
+                className="tab-bar"
+                style={{
+                  height: "2rem",
+                  width: "95%",
+                  overflowX: "auto",
+                  overflowY: "hidden",
+                  scrollbarWidth: "none",
+                  whiteSpace: "nowrap",
+                  borderStyle: "solid",
+                  listStyleType: "none",
+                  marginRight: "2.5rem",
+                  borderColor: "#FBB03B",
+                  borderBottomStyle: "none",
+                  color: "#FBB03B",
+                }}
+              >
+                {aString}
+              </div>
+            </ScrollSyncPane>
+            <ScrollSyncPane>
+              <div
+                className="tab-bar"
+                style={{
+                  height: "2rem",
+                  width: "95%",
+                  overflowX: "auto",
+                  overflowY: "hidden",
+                  scrollbarWidth: "none",
+                  whiteSpace: "nowrap",
+                  borderStyle: "solid",
+                  listStyleType: "none",
+                  marginRight: "2.5rem",
+                  borderColor: "#FBB03B",
+                  borderBottomStyle: "solid",
+                  color: "#FBB03B",
+                }}
+              >
+                {eString}
+              </div>
+            </ScrollSyncPane>
+          </div>
+          <div>
+            <footer
+              style={{
+                position: "fixed",
+                bottom: "0",
+                left: "0",
+                right: "0",
+                width: "100%",
+              }}
+            >
+              <Link to="/">
+                <button
+                  style={{
+                    width: "33.33%",
+                    height: "3rem",
+                    backgroundColor: "#171717",
+                    color: "#DFDFDF",
+                    borderColor: "#FBB03B",
+                  }}
+                >
+                  Record Again
+                </button>
+              </Link>
               <Link to="/publish">
                 <button
                   onClick={handlePublish}
                   style={{
-                    width: "50%",
+                    width: "33.33%",
                     height: "3rem",
                     backgroundColor: "#171717",
                     color: "#DFDFDF",
@@ -322,10 +381,22 @@ function Edit({ noteArray, position }) {
                   Publish
                 </button>
               </Link>
-            </Link>
-          </footer>
+              <button
+                onClick={handleAddLines}
+                style={{
+                  width: "33.33%",
+                  height: "3rem",
+                  backgroundColor: "#171717",
+                  color: "#DFDFDF",
+                  borderColor: "#FBB03B",
+                }}
+              >
+                Add Lines
+              </button>
+            </footer>
+          </div>
         </div>
-      </div>
+      </ScrollSync>
     </div>
   );
 }
