@@ -8,9 +8,10 @@ import {
 } from "./services/utils";
 import Modal from "react-modal";
 
+// TODO: Style this like the other tab-bars...
+
 function Edit({ noteArray, position }) {
   const previousTabObj = JSON.parse(window.localStorage.getItem("tabObj"));
-  console.log("prevObj", previousTabObj);
   const [eString, setEString] = useState([]);
   const [aString, setAString] = useState([]);
   const [dString, setDString] = useState([]);
@@ -87,6 +88,7 @@ function Edit({ noteArray, position }) {
   }, [toggle]);
 
   function openModal(e) {
+    console.log("HERE", e.target.id);
     setCurrentNote({
       note: e.target.innerHTML,
       position: e.target.id,

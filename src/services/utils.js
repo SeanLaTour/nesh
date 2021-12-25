@@ -472,6 +472,7 @@ export const generateTabObjForEdit = (noteArray, position, buttonFunction) => {
           tabObj[string].push(
             <button
               onClick={(e) => buttonFunction(e)}
+              id={note.count}
               className="tab-button"
               name={string}
               style={{

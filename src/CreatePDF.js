@@ -68,9 +68,6 @@ function CreatePDF() {
     <Document>
       <Page size="A4" style={styles.page}>
         {tabObjPDF(tabObj)}
-        <View style={styles.section}>
-          <Text>Section #2</Text>
-        </View>
       </Page>
     </Document>
   );
