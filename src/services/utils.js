@@ -535,17 +535,14 @@ export const generateTabObjFromPrevious = (previousTabObj, buttonFunction) => {
             {tempDoubleDigit}
           </button>
         );
-      }
-      if (openParenthesis) {
+      } else if (openParenthesis) {
         tempDoubleDigit += note;
         return;
-      }
-      if (note === "(") {
+      } else if (note === "(") {
         openParenthesis = true;
         tempDoubleDigit = "";
         return;
-      }
-      if (note === "-") {
+      } else if (note === "-") {
         tabObj[string[0]].push(
           <button
             id={index + 100000}

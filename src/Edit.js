@@ -403,7 +403,7 @@ function Edit({ noteArray, position }) {
                     borderColor: "#FBB03B",
                   }}
                 >
-                  Publish
+                  Preview
                 </button>
               </Link>
               <button

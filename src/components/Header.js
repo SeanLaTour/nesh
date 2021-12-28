@@ -1,5 +1,6 @@
 import React from "react";
 import { BsFillPersonFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -17,9 +18,20 @@ function Header() {
         width: "100%",
         display: "flex",
         justifyContent: "center",
-        justifyContent: "end",
+        justifyContent: "space-between",
       }}
     >
+      <Link to="/">
+        <button
+          style={{
+            height: "100%",
+            backgroundColor: "#171717",
+            color: "#DFDFDF",
+          }}
+        >
+          Home
+        </button>
+      </Link>
       <BsFillPersonFill
         onClick={() => window.confirm("Did you want to sign out?")}
         style={{
