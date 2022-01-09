@@ -73,7 +73,7 @@ function CreatePDF() {
 
   return (
     <PDFViewer width={"100%"} height={"1000px"}>
-      <Document style={styles.section}>
+      <Document file="test.pdf" style={styles.section}>
         <Page size={"A4"} style={styles.page}>
           {tabObjPDF(tabObj)}
         </Page>
