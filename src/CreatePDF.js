@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
     backgroundColor: "#FFFFFF",
+    letterSpacing: "5px",
+    fontFamily: "Courier",
   },
   section: {
     margin: 10,
