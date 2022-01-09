@@ -1,5 +1,12 @@
 import React from "react";
-import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import {
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  PDFViewer,
+} from "@react-pdf/renderer";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -65,11 +72,13 @@ function CreatePDF() {
   };
 
   return (
-    <Document>
-      <Page size="A4" style={styles.page}>
-        {tabObjPDF(tabObj)}
-      </Page>
-    </Document>
+    <PDFViewer width={"100%"} height={"1000px"}>
+      <Document style={styles.section}>
+        <Page size={"A4"} style={styles.page}>
+          {tabObjPDF(tabObj)}
+        </Page>
+      </Document>
+    </PDFViewer>
   );
 }
 
