@@ -6,6 +6,7 @@ import {
   Document,
   StyleSheet,
   PDFViewer,
+  PDFDownloadLink,
 } from "@react-pdf/renderer";
 
 // Create styles
@@ -73,14 +74,39 @@ function CreatePDF() {
     }
   };
 
+  const downloadButton = () => {
+    return (
+      <div>
+        <PDFDownloadLink
+          document={
+            <Document file="test.pdf" style={styles.section}>
+              <Page size={"A4"} style={styles.page}>
+                {tabObjPDF(tabObj)}
+              </Page>
+            </Document>
+          }
+          fileName={`neshTab${Math.floor(Math.random() * 999999999999999)}.pdf`}
+        >
+          {({ blob, url, loading, error }) =>
+            loading ? "Loading document..." : "Download now!"
+          }
+        </PDFDownloadLink>
+      </div>
+    );
+  };
+
   return (
-    <PDFViewer width={"100%"} height={"1000px"}>
-      <Document file="test.pdf" style={styles.section}>
-        <Page size={"A4"} style={styles.page}>
-          {tabObjPDF(tabObj)}
-        </Page>
-      </Document>
-    </PDFViewer>
+    <div>
+      {downloadButton()}
+
+      <PDFViewer width={"100%"} height={"1000px"}>
+        <Document file="test.pdf" style={styles.section}>
+          <Page size={"A4"} style={styles.page}>
+            {tabObjPDF(tabObj)}
+          </Page>
+        </Document>
+      </PDFViewer>
+    </div>
   );
 }
 
