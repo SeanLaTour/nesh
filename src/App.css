@@ -118,3 +118,22 @@ a {
 .tab-bar::-webkit-scrollbar {
   display: none;
 }
+
+.logo {
+  width: 50%;
+}
+
+.logo-content {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .logo {
+    margin-top: 8rem;
+    width: 100%;
+  }
+
+  .logo-content {
+    margin-top: 2rem;
+  }
+}

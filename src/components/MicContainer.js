@@ -8,6 +8,7 @@ function MicContainer({ setNoteArray, noteArray, record, recordOff, check }) {
   return (
     <div>
       <div
+        className="Mic"
         style={{
           marginTop: "0rem",
           paddingTopa: "1rem",
@@ -15,9 +16,13 @@ function MicContainer({ setNoteArray, noteArray, record, recordOff, check }) {
           padding: "2rem",
         }}
       >
-        <img style={{ width: "50%" }} src={logo} />
+        <img className="logo" src={logo} />
         {audioWave ? (
-          <div style={{ marginTop: "-2rem", color: "#FBB03B" }} class="loader">
+          <div
+            className="logo-content"
+            style={{ color: "#FBB03B" }}
+            class="loader"
+          >
             <svg
               id="wave"
               data-name="Layer 1"
@@ -73,7 +78,7 @@ function MicContainer({ setNoteArray, noteArray, record, recordOff, check }) {
             </svg>
           </div>
         ) : (
-          <p style={{ marginTop: "-2rem", color: "#FBB03B" }}>
+          <p className="logo-content" style={{ color: "#FBB03B" }}>
             Don't forget your licks.
           </p>
         )}
