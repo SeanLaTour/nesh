@@ -7,6 +7,7 @@ import {
   StyleSheet,
   PDFViewer,
   PDFDownloadLink,
+  Link,
 } from "@react-pdf/renderer";
 
 // Create styles
@@ -78,6 +79,7 @@ function CreatePDF() {
     return (
       <div>
         <PDFDownloadLink
+          style={{ color: "#FBB03B" }}
           document={
             <Document file="test.pdf" style={styles.section}>
               <Page size={"A4"} style={styles.page}>
@@ -88,7 +90,7 @@ function CreatePDF() {
           fileName={`neshTab${Math.floor(Math.random() * 999999999999999)}.pdf`}
         >
           {({ blob, url, loading, error }) =>
-            loading ? "Loading document..." : "Download now!"
+            loading ? "Loading document..." : "Download"
           }
         </PDFDownloadLink>
       </div>
@@ -97,15 +99,64 @@ function CreatePDF() {
 
   return (
     <div>
+      <div
+        style={{
+          marginTop: "22rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          color: "#FBB03B",
+          width: "100%",
+        }}
+      >
+        <label>File name</label>
+        <input></input>
+        <label>Band name</label>
+        <input></input>
+        <Link to="/">
+          <button>Back</button>
+        </Link>
+      </div>
+      <footer
+        style={{
+          position: "fixed",
+          bottom: "0",
+          left: "0",
+          right: "0",
+          width: "100%",
+        }}
+      >
+        <Link to="/">
+          <button
+            style={{
+              width: "50%",
+              height: "3rem",
+              backgroundColor: "#171717",
+              color: "#DFDFDF",
+              borderColor: "#FBB03B",
+            }}
+          >
+            Back
+          </button>
+        </Link>
+        <Link to="/publish">
+          <button
+            style={{
+              width: "50%",
+              height: "3rem",
+              backgroundColor: "#171717",
+              color: "#DFDFDF",
+              borderColor: "#FBB03B",
+            }}
+          >
+            Preview
+          </button>
+        </Link>
+      </footer>
+      <Link to="/">
+        <button>Back</button>
+      </Link>
       {downloadButton()}
-
-      <PDFViewer width={"100%"} height={"1000px"}>
-        <Document file="test.pdf" style={styles.section}>
-          <Page size={"A4"} style={styles.page}>
-            {tabObjPDF(tabObj)}
-          </Page>
-        </Document>
-      </PDFViewer>
     </div>
   );
 }

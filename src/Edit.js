@@ -239,6 +239,7 @@ function Edit({ noteArray, position }) {
             display: "flex",
             justifyContent: "center",
             flexDirection: "column",
+            marginTop: "10rem",
           }}
         >
           <div style={{ textAlign: "left" }}>

@@ -40,6 +40,7 @@ function Publish() {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                marginTop: "10rem",
               }}
             >
               e |{e2String.join("")}
