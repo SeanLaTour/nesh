@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { tabify } from "./services/utils";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
+import PaintBrushSVG from "./images/paint_brush_stroke.svg";
 
 function Publish() {
   const tabObj = JSON.parse(window.localStorage.getItem("tabObj"));

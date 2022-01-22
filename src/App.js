@@ -21,6 +21,7 @@ function App() {
           <MicPage setNoteArray={setNoteArray} />
         </Route>
         <Route path="/createPDF">
+          <Header />
           <CreatePDFPage />
         </Route>
         <Route path="/tab">

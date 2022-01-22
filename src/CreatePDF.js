@@ -9,6 +9,8 @@ import {
   PDFDownloadLink,
   Link,
 } from "@react-pdf/renderer";
+import Logo from "./images/logo-search-grid-desktop.png";
+import { useState } from "react/cjs/react.development";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -28,6 +30,11 @@ const styles = StyleSheet.create({
 // Create Document Component
 function CreatePDF() {
   const tabObj = JSON.parse(window.localStorage.getItem("tabObj"));
+  const [bandName, setBandName] = useState("");
+  const [fileName, setFileName] = useState(
+    `neshTab${Math.floor(Math.random() * 999999999999999)}.pdf`
+  );
+  const [lickName, setLickName] = useState("Sick Lick");
 
   const tabObjPDF = (tabObj) => {
     let longestString = "";
@@ -79,15 +86,31 @@ function CreatePDF() {
     return (
       <div>
         <PDFDownloadLink
-          style={{ color: "#FBB03B" }}
+          style={{
+            position: "fixed",
+            bottom: "0",
+            left: "0",
+            right: "0",
+            width: "100%",
+            height: "3rem",
+            backgroundColor: "#171717",
+            color: "#FBB03B",
+            borderColor: "#FBB03B",
+            borderWidth: "2px",
+            borderStyle: "solid",
+            paddingTop: "1rem",
+            paddingBottom: "-0.5rem",
+          }}
           document={
             <Document file="test.pdf" style={styles.section}>
               <Page size={"A4"} style={styles.page}>
+                <Text>{bandName}</Text>
+                <Text>{lickName}</Text>
                 {tabObjPDF(tabObj)}
               </Page>
             </Document>
           }
-          fileName={`neshTab${Math.floor(Math.random() * 999999999999999)}.pdf`}
+          fileName={fileName}
         >
           {({ blob, url, loading, error }) =>
             loading ? "Loading document..." : "Download"
@@ -97,11 +120,23 @@ function CreatePDF() {
     );
   };
 
+  const handleInputBandName = (e) => {
+    setBandName(e.target.value);
+  };
+
+  const handleInputLickName = (e) => {
+    setLickName(e.target.value);
+  };
+
+  const handleInputFileName = (e) => {
+    setFileName(`${e.target.value}.pdf`);
+  };
+
   return (
     <div>
       <div
         style={{
-          marginTop: "22rem",
+          marginTop: "12rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -109,50 +144,18 @@ function CreatePDF() {
           width: "100%",
         }}
       >
+        <img src={Logo} />
         <label>File name</label>
-        <input></input>
+        <input onChange={(e) => handleInputFileName(e)}></input>
         <label>Band name</label>
-        <input></input>
+        <input onChange={(e) => handleInputBandName(e)}></input>
+        <label>Lick name</label>
+        <input onChange={(e) => handleInputLickName(e)}></input>
         <Link to="/">
           <button>Back</button>
         </Link>
       </div>
-      <footer
-        style={{
-          position: "fixed",
-          bottom: "0",
-          left: "0",
-          right: "0",
-          width: "100%",
-        }}
-      >
-        <Link to="/">
-          <button
-            style={{
-              width: "50%",
-              height: "3rem",
-              backgroundColor: "#171717",
-              color: "#DFDFDF",
-              borderColor: "#FBB03B",
-            }}
-          >
-            Back
-          </button>
-        </Link>
-        <Link to="/publish">
-          <button
-            style={{
-              width: "50%",
-              height: "3rem",
-              backgroundColor: "#171717",
-              color: "#DFDFDF",
-              borderColor: "#FBB03B",
-            }}
-          >
-            Preview
-          </button>
-        </Link>
-      </footer>
+
       <Link to="/">
         <button>Back</button>
       </Link>
