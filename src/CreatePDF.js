@@ -11,6 +11,7 @@ import {
 } from "@react-pdf/renderer";
 import Logo from "./images/logo-search-grid-desktop.png";
 import { useState } from "react/cjs/react.development";
+import { refineTabObjForPDF } from "./services/utils";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -38,6 +39,7 @@ function CreatePDF() {
     `neshTab${Math.floor(Math.random() * 999999999999999)}.pdf`
   );
   const [lickName, setLickName] = useState("Sick Lick");
+  console.log("here", refineTabObjForPDF(tabObj))
 
   const tabObjPDF = (tabObj) => {
     let longestString = "";
@@ -139,7 +141,7 @@ function CreatePDF() {
                   <Text>{bandName}</Text>
                   <Text>{lickName}</Text>
                 </View>
-                {tabObjPDF(tabObj)}
+                {tabObjPDF(refineTabObjForPDF(tabObj))}
               </Page>
             </Document>
           }

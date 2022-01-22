@@ -590,3 +590,47 @@ export const generateTabObjFromPrevious = (previousTabObj, buttonFunction) => {
   console.log(tabObj);
   return tabObj;
 };
+
+export const refineTabObjForPDF = (previousTabObj) => {
+  let tabObj = {
+    e: "",
+    a: "",
+    d: "",
+    g: "",
+    b: "",
+    e2: "",
+  };
+  let openParenthesis = false;
+  let tempDoubleDigit = "";
+  Object.entries(previousTabObj).forEach((string) => {
+    console.log(string[1]);
+    const tempString = string[1].split("");
+    tempString.forEach((note, index) => {
+      if (note === ")") {
+        openParenthesis = false;
+        tabObj[string[0]] += tempDoubleDigit
+
+        // YOU ARE HERE... try and add another dash when there are double letters...
+
+        Object.entries(tabObj).forEach(string => {
+          if (string !== string[0]) {
+            tabObj[string[0]] += "-"
+          }
+        })
+      } else if (openParenthesis) {
+        tempDoubleDigit += note;
+        return;
+      } else if (note === "(") {
+        openParenthesis = true;
+        tempDoubleDigit = "";
+        return;
+      } else if (note === "-") {
+        tabObj[string[0]] += "-"
+      } else {
+        tabObj[string[0]] += note
+      }
+    });
+  });
+  console.log(tabObj);
+  return tabObj;
+};
