@@ -136,7 +136,7 @@ function CreatePDF() {
     <div>
       <div
         style={{
-          marginTop: "12rem",
+          marginTop: "6rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
