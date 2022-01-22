@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
     padding: 10,
     flexGrow: 1,
   },
+  header: {
+    textAlign: "center",
+  },
 });
 
 // Create Document Component
@@ -47,7 +50,7 @@ function CreatePDF() {
       }
     });
     console.log(longestString, stringLength);
-    if (tabObj[longestString].length < 70) {
+    if (tabObj[longestString].length <= 30) {
       return (
         <View style={styles.section}>
           <Text>e | {tabObj.e2}</Text>
@@ -59,24 +62,52 @@ function CreatePDF() {
         </View>
       );
     } else if (
-      tabObj[longestString].length >= 70 &&
-      tabObj[longestString].length < 196
+      tabObj[longestString].length >= 20 &&
+      tabObj[longestString].length <= 61
     ) {
       return (
         <View style={styles.section}>
-          <Text>e | {tabObj.e2.slice(0, 70)}</Text>
-          <Text>b | {tabObj.b.slice(0, 70)}</Text>
-          <Text>g | {tabObj.g.slice(0, 70)}</Text>
-          <Text>d | {tabObj.d.slice(0, 70)}</Text>
-          <Text>a | {tabObj.a.slice(0, 70)}</Text>
-          <Text>e | {tabObj.e.slice(0, 70)}</Text>
+          <Text>e | {tabObj.e2.slice(0, 30)}</Text>
+          <Text>b | {tabObj.b.slice(0, 30)}</Text>
+          <Text>g | {tabObj.g.slice(0, 30)}</Text>
+          <Text>d | {tabObj.d.slice(0, 30)}</Text>
+          <Text>a | {tabObj.a.slice(0, 30)}</Text>
+          <Text>e | {tabObj.e.slice(0, 30)}</Text>
           <Text> </Text>
-          <Text>e | {tabObj.e2.slice(71, 140)}</Text>
-          <Text>b | {tabObj.b.slice(71, 140)}</Text>
-          <Text>g | {tabObj.g.slice(71, 140)}</Text>
-          <Text>d | {tabObj.d.slice(71, 140)}</Text>
-          <Text>a | {tabObj.a.slice(71, 140)}</Text>
-          <Text>e | {tabObj.e.slice(71, 140)}</Text>
+          <Text>e | {tabObj.e2.slice(31, 61)}</Text>
+          <Text>b | {tabObj.b.slice(31, 61)}</Text>
+          <Text>g | {tabObj.g.slice(31, 61)}</Text>
+          <Text>d | {tabObj.d.slice(31, 61)}</Text>
+          <Text>a | {tabObj.a.slice(31, 61)}</Text>
+          <Text>e | {tabObj.e.slice(31, 61)}</Text>
+        </View>
+      );
+    } else if (
+      tabObj[longestString].length >= 62 &&
+      tabObj[longestString].length <= 93
+    ) {
+      return (
+        <View style={styles.section}>
+          <Text>e | {tabObj.e2.slice(0, 30)}</Text>
+          <Text>b | {tabObj.b.slice(0, 30)}</Text>
+          <Text>g | {tabObj.g.slice(0, 30)}</Text>
+          <Text>d | {tabObj.d.slice(0, 30)}</Text>
+          <Text>a | {tabObj.a.slice(0, 30)}</Text>
+          <Text>e | {tabObj.e.slice(0, 30)}</Text>
+          <Text> </Text>
+          <Text>e | {tabObj.e2.slice(31, 61)}</Text>
+          <Text>b | {tabObj.b.slice(31, 61)}</Text>
+          <Text>g | {tabObj.g.slice(31, 61)}</Text>
+          <Text>d | {tabObj.d.slice(31, 61)}</Text>
+          <Text>a | {tabObj.a.slice(31, 61)}</Text>
+          <Text>e | {tabObj.e.slice(31, 61)}</Text>
+          <Text> </Text>
+          <Text>e | {tabObj.e2.slice(62, 93)}</Text>
+          <Text>b | {tabObj.b.slice(62, 93)}</Text>
+          <Text>g | {tabObj.g.slice(62, 93)}</Text>
+          <Text>d | {tabObj.d.slice(62, 93)}</Text>
+          <Text>a | {tabObj.a.slice(62, 93)}</Text>
+          <Text>e | {tabObj.e.slice(62, 93)}</Text>
         </View>
       );
     }
@@ -104,8 +135,10 @@ function CreatePDF() {
           document={
             <Document file="test.pdf" style={styles.section}>
               <Page size={"A4"} style={styles.page}>
-                <Text>{bandName}</Text>
-                <Text>{lickName}</Text>
+                <View style={styles.header}>
+                  <Text>{bandName}</Text>
+                  <Text>{lickName}</Text>
+                </View>
                 {tabObjPDF(tabObj)}
               </Page>
             </Document>
