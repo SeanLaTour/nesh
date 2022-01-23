@@ -355,13 +355,14 @@ export const transform = (note, position = 0) => {
   }
 };
 
+// TODO: change this so that it's true to what it hears...
 export const tabify = (array) => {
   let temp = false;
   let doubleDigit = false;
   return array.split("").map((fret) => {
     if (fret === "(") {
       doubleDigit = !doubleDigit;
-      return ` - `;
+      return ``;
     } else if (fret === ")") {
       doubleDigit = !doubleDigit;
       return ``;
@@ -612,9 +613,11 @@ export const refineTabObjForPDF = (previousTabObj) => {
 
         // YOU ARE HERE... try and add another dash when there are double letters...
 
-        Object.entries(tabObj).forEach(string => {
-          if (string !== string[0]) {
-            tabObj[string[0]] += "-"
+        Object.entries(tabObj).forEach(otherString => {
+          console.log("OS",otherString[0], "string", string[0])
+          if (otherString[0] !== string[0]) {
+            console.log("here")
+            tabObj[otherString[0]] += "-"
           }
         })
       } else if (openParenthesis) {

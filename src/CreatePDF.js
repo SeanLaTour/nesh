@@ -39,7 +39,7 @@ function CreatePDF() {
     `neshTab${Math.floor(Math.random() * 999999999999999)}.pdf`
   );
   const [lickName, setLickName] = useState("Sick Lick");
-  console.log("here", refineTabObjForPDF(tabObj))
+  console.log("here", refineTabObjForPDF(tabObj));
 
   const tabObjPDF = (tabObj) => {
     let longestString = "";
