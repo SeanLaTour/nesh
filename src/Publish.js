@@ -11,6 +11,7 @@ function Publish() {
   const gString = tabify(tabObj.g);
   const bString = tabify(tabObj.b);
   const e2String = tabify(tabObj.e2);
+  console.log("tabObj from Publish", tabObj)
 
   return (
     <ScrollSync>
@@ -41,6 +42,8 @@ function Publish() {
                 borderBottomStyle: "none",
                 color: "#FBB03B",
                 marginTop: "10rem",
+                fontFamily: "Courier",
+                letterSpacing: "0.5rem"
               }}
             >
               e |{e2String.join("")}
@@ -62,6 +65,8 @@ function Publish() {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                fontFamily: "Courier",
+                letterSpacing: "0.5rem"
               }}
             >
               b |{bString.join("")}
@@ -83,6 +88,8 @@ function Publish() {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                fontFamily: "Courier",
+                letterSpacing: "0.5rem"
               }}
             >
               g |{gString.join("")}
@@ -104,6 +111,8 @@ function Publish() {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                fontFamily: "Courier",
+                letterSpacing: "0.5rem"
               }}
             >
               d |{dString.join("")}
@@ -125,6 +134,8 @@ function Publish() {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                fontFamily: "Courier",
+                letterSpacing: "0.5rem"
               }}
             >
               a |{aString.join("")}
@@ -145,6 +156,8 @@ function Publish() {
                 marginRight: "2.5rem",
                 borderColor: "#FBB03B",
                 color: "#FBB03B",
+                fontFamily: "Courier",
+                letterSpacing: "0.5rem"
               }}
             >
               e |{eString.join("")}

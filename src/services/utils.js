@@ -372,7 +372,7 @@ export const tabify = (array) => {
     } else {
       if (temp) {
         temp = !temp;
-        return ` - ${fret} - `;
+        return `${fret}`;
       }
       if (!temp) {
         temp = !temp;
@@ -617,7 +617,7 @@ export const refineTabObjForPDF = (previousTabObj) => {
           console.log("OS",otherString[0], "string", string[0])
           if (otherString[0] !== string[0]) {
             console.log("here")
-            tabObj[otherString[0]] += "-"
+            // tabObj[otherString[0]] += "-"
           }
         })
       } else if (openParenthesis) {

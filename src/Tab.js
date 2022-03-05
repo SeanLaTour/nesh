@@ -57,6 +57,7 @@ function Tab({ noteArray, position, setPosition }) {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                fontFamily: "Courier"
               }}
             >
               e |{e2String.join("")}
@@ -78,6 +79,7 @@ function Tab({ noteArray, position, setPosition }) {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                fontFamily: "Courier"
               }}
             >
               b |{bString.join("")}
@@ -99,6 +101,7 @@ function Tab({ noteArray, position, setPosition }) {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                fontFamily: "Courier"
               }}
             >
               g |{gString.join("")}
@@ -120,6 +123,7 @@ function Tab({ noteArray, position, setPosition }) {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                fontFamily: "Courier"
               }}
             >
               d |{dString.join("")}
@@ -141,6 +145,7 @@ function Tab({ noteArray, position, setPosition }) {
                 borderColor: "#FBB03B",
                 borderBottomStyle: "none",
                 color: "#FBB03B",
+                fontFamily: "Courier"
               }}
             >
               a |{aString.join("")}
@@ -161,6 +166,7 @@ function Tab({ noteArray, position, setPosition }) {
                 marginRight: "2.5rem",
                 borderColor: "#FBB03B",
                 color: "#FBB03B",
+                fontFamily: "Courier"
               }}
             >
               e |{eString.join("")}
